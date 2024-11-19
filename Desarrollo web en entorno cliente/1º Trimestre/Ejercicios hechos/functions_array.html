@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <script>
+            let coches = [
+                {motor: "Diesel", nombre:"Renalt"},
+                {motor: "Gasolina", nombre:"Audi"},
+                {motor: "Diesel", nombre:"Ford"}
+            ];
+
+            let diesel = coches.filter(coche => coche.motor === 'Diesel').forEach(coche => console.log(coche.nombre.toUpperCase()));
+            let palabra = "HOLA MUNDO";
+            let letras = ["a","b","c","D","h","f","e"];
+            let num=[1,2,3];
+
+            let nums =[1,2,3,4,7,8,9,0,11];
+            console.log(nums.includes(6));
+            console.log(palabra.includes("O"));
+
+            console.log(nums.some(num => num > 8)); //algun numero mayor de 8
+            console.log(nums.every(num => num > 8));//todos los numero mayor que el 8
+
+            console.log(nums.sort ((a,b) => (a-b)));//te ordena de menor a mayor
+            console.log(nums.sort ((a,b) => (b-a)));//te ordena de mayor a menor
+
+            console.log(letras.sort);
+
+            let total = 0;
+            num.forEach(n => total +=n);
+            console.log(total);
+
+            console.log(num.reduce((total,numero) => total + numero));
+
+            
+
+
+    </script>
+</body>
+</html>

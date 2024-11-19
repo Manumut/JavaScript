@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("Ejercicio 12 ● Almacenar en un array los nombres de 5 estudiantes ● Eliminar el estudiante en la posición 0 ● imprimir en la consola el largo del array<br>");
+
+        let array=["E1","E2","E3","E4","E5"];
+        document.write(array.shift()); //Elimina el primero
+
+        document.write(`<br>Es la longitud del nuevo array `,array.length);
+        document.write(`<br>`,array.indexOf("E3"));
+
+        
+        let nombres = ['Bienvenido', 'al', 'curso', 'de','javascript'];
+            let nombresconSep = nombres.join(" ");
+            document.write(`<br>`,nombresconSep);
+
+            let nombre = "Bienvenido al curso de javascript";
+            let nombresArray = nombre.split(" ");
+            document.write(`<br>`,nombresArray);
+            console.log(typeof nombresArray);
+            console.log(nombresArray);
+
+
+
+    </script>
+    
+</body>
+</html>

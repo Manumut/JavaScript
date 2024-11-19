@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div{
+            position: relative;
+        }
+        button{
+            position: absolute;
+            z-index: 999;
+        }
+        button:nth-child(1){
+            
+            left: 0px;
+            top: 0;
+        }
+        button:nth-child(2){
+            left: 100px;
+            top: 0px;
+        } */
+    </style>
+</head>
+<body>
+
+    <script>
+        // const boton = document.createElement("button")
+        // boton.textContent="Contar clicks"
+
+        // const p = document.createElement("p")
+        // let clicks = 0
+        // document.addEventListener("DOMContentLoaded",()=>{
+        //     document.body.append(boton,p)
+        //     boton.addEventListener("click",()=>{
+        //         clicks++
+        //         boton.textContent=`click ${clicks}`;
+        //     })
+        // })
+        // const img = document.createElement("img");
+        // img.src = "https://picsum.photos/200/300";
+        // const zoom = document.createElement("button");
+        // zoom.textContent = "Zoom in";
+        // const out = document.createElement("button");
+        // out.textContent ="Zoom out";
+        // const div = document.createElement("div")
+        // let sum = 1;
+        // document.addEventListener("DOMContentLoaded",()=>{
+        //     document.body.append(img,div);
+        //     div.append(zoom,out);
+        //     zoom.addEventListener("click",()=>{
+        //         img.style.transform = `scale(${sum+=0.2})`
+        //     })
+        //     out.addEventListener("click",()=>{
+        //         img.style.transform = `scale(${sum-=0.2})`
+        //     })
+        // })
+
+        // Ejercicio 3
+        // const nombres = ["Antonio", "José","Ana","Jorge"];
+        // const input = document.createElement("input");
+        // const ul = document.createElement("ul");
+        
+        // document.addEventListener("DOMContentLoaded", () =>{
+        //     document.body.append(input, ul);
+        //     nombres.forEach(nombre => {
+        //         const li = document.createElement("li");
+        //         li.textContent = nombre;
+        //         ul.append(li);
+        //     });
+
+        //     input.addEventListener("input", (e) =>{
+        //         let escrito = e.target.value.toLowerCase();
+        //         let listaLI = document.querySelectorAll("li");
+        //         listaLI.forEach(li => {
+        //             if(!li.textContent.toLowerCase().includes(escrito)){
+        //                 li.style.display = "none";
+        //             }else{
+        //                 li.style.display = "list-item";
+        //             }
+        //         });
+
+        //     })
+            
+        // })
+
+        //Ejercicio 4
+        // const input = document.createElement("input");
+        // const boton = document.createElement("button");
+        // const div = document.createElement("div");
+        // boton.textContent= "Enviar";
+        // document.addEventListener("DOMContentLoaded", () =>{
+        //     let texto="";
+
+        //     boton.addEventListener("click", ()=>{
+        //         texto = input.value.trim();
+
+        //             if(texto==""){
+        //                 alert("El campo es obligatorio");
+        //             } else{
+        //                 alert("El formulario se ha enviado correctamente");
+        //             }
+                
+        //     })
+            
+        //     div.append(input, boton)
+        //     document.body.append(div);
+        // });
+
+        // Ejercicio 5
+
+        // const boton = document.createElement("button");
+        // boton.textContent = "Abrir modal";
+        // const modal = document.createElement("div");
+        // const btnCerrar = document.createElement("button");
+        // btnCerrar.textContent = "Cerrar";
+
+        // document.addEventListener("DOMContentLoaded", () => {
+        //     document.body.append(boton);
+
+        //     boton.addEventListener("click", () => {
+        //         modal.append(btnCerrar);
+        //         document.body.append(modal);
+        //     })
+
+        //     btnCerrar.addEventListener("click", () => {
+        //         modal.remove();
+        //     })
+        // })
+
+        const desplegable = document.createElement ("select");
+        let colorAlmacenado = localStorage.getItem("colorElegido") || "white";
+        const valores = ["white","blue","green","yellow"];
+
+        const boton = document.createElement ("button");
+        boton.textContent = "guardar color";
+
+        function cargarColor (){
+            document.body.style.background = colorAlmacenado;
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+
+            cargarColor();
+
+            valores.forEach(val => {
+                desplegable.innerHTML += `<option value=${val}>
+                    ${val}</option>`;
+            })
+
+            desplegable.addEventListener("change", (e) => {
+                document.body.style.backgroundColor = e.target.value;
+                colorAlmacenado = e.target.value;
+            })
+
+            boton.addEventListener("click", () => {             
+                localStorage.setItem("colorElegido", colorAlmacenado);
+            })
+
+            document.body.append(desplegable,boton);
+            
+
+        });
+
+    </script>
+</body>
+</html>

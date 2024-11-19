@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const desplegable = document.createElement("select");
+        let colorAlmacenado = localStorage.getItem("colorElegido") || "white";
+        const valores = ["red","blue","green","yellow"];
+
+        const boton=document.createElement("button");
+        boton.textContent="Guardar color";
+       
+
+        function cargarColor(){
+            document.body.style.backgroundColor = colorAlmacenado;
+        }
+
+        document.addEventListener("DOMContentLoaded",() => {
+
+            cargarColor();
+
+            valores.forEach(val => {
+                desplegable.innerHtml += `<option value=${val}>
+                    ${val}</option>`;
+            })
+            desplegable.addEventListener("change", (e) =>{
+                document.body.style.backgroundColor = e.target.value;
+                colorAlmacenado = e.target.value;
+            })
+            boton.addEventListener("click",() => {
+                localStorage.setItem("colorElegido", colorAlmacenado);
+            })
+            document.body.append(desplegable,boton);
+        })
+    </script>
+    
+</body>
+</html>
+
+

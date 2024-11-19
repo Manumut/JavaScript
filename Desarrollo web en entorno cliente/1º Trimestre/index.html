@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/solar/bootstrap.min.css">
+    <style>
+        li{
+            list-style: none;
+
+            border-bottom: solid 1px;
+            padding: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container border p-5 my-5">
+        <div class="tareas row p-2">
+            <div class="col-md-6 offset-md-3">
+                <input type="text" class="form-control" placeholder="Añadir tarea">
+                <button class="btn btn-primary my-4 col-md-4 offset-md-8 rounded-4">Añadir tarea</button>
+            </div>
+            <div class="row">
+                <div class="listaTareas col-md-6 offset-md-3">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // VARIABLES
+        document.addEventListener("DOMContentLoaded", () => {
+           let input = document.querySelector("div.tareas input");
+           let boton = document.querySelector("div.tareas button");
+           let listaTareas = document.querySelector(".listaTareas");
+           let ul = crearEle("ul");
+           listaTareas.append(ul)
+
+        //    FUNCIONES
+           function limpiar(ele){
+                ele.value = "";
+                ele.focus();
+           }
+
+           function crearEle(ele){
+                return document.createElement(ele);
+           }
+
+        //    CODIGO GENERICO
+           boton.addEventListener("click", () => {
+                if(input.value.trim() != ""){
+                    let tarea = input.value.trim();
+                    let li = crearEle("li");
+                    li.textContent=tarea;
+                    ul.append(li);
+                    listaTareas.append(ul);
+
+                    limpiar(input);
+                }
+           });
+
+           
+
+
+
+
+
+
+//DIFERENTES FORMAS DE HACER PARA QUE TE GUARDE LO QUE TE ESCRIBE
+        //    input.addEventListener("input", (e) => {
+        //     let tarea = e.target.value;
+            
+
+        //    })
+
+
+        })
+    </script>
+
+
+
+</body>
+</html>

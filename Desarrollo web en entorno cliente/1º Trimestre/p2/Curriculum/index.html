@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Generador de Curriculum</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			ul,
+			li {
+				list-style: none;
+			}
+			img {
+				border: solid 10px salmon;
+				border-radius: 50%;
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+			}
+			body {
+				font-size: 15px;
+				font-family: "system-ui";
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				min-height: 100vh;
+			}
+			.container {
+				max-width: 1024px;
+				margin: auto;
+				border: solid 1px salmon;
+				padding: 50px;
+			}
+			.container > div {
+				margin: 30px 0;
+			}
+			.container > div::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 1px;
+				background-color: salmon;
+				margin: 20px 0;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- <div class="container">
+			<h1>Bienvenido a mi Curriculum</h1>
+			<div class="perfil">
+				<img src="https://picsum.photos/80" alt="" />
+			</div>
+			<div class="datosPersonales">
+				<ul>
+					<li>Antonio de la hostia</li>
+					<li>666 666 666</li>
+					<li>antonio@delahostia.com</li>
+				</ul>
+			</div>
+
+			<div class="conocimientos">
+				<ul>
+					<li>html</li>
+					<li>Css</li>
+					<li>Javascsript</li>
+					<li>Hacer tortilla</li>
+				</ul>
+			</div>
+		</div> -->
+        <script>
+            let perfil = prompt("url de tu foto");
+            let nom = prompt("Nombre del usuario");
+            let num = prompt("Número del usuario");
+            let gm = prompt("Gmail del usuario");
+            let conocimientos = prompt("insertar 3 lenguajes que dominas por coma").split(",");
+
+			console.log(conocimientos);
+			if(nom == null || nom == ""){
+				nom="yepa";
+			}
+			if(num == null || num == ""){
+				num=32146789;
+			}
+			if(gm == null || gm == ""){
+				gm="tusmu@gmail.com";
+			}
+			if(conocimientos == null || conocimientos == ""){
+				conocimientos="guala";
+			}
+
+            document.write(`
+            <div class="container">
+			<h1>Bienvenido a mi Curriculum</h1>
+			<div class="perfil">
+				<img src="${perfil, "https://randomuser.me/api/portraits/men/61.jpg"}" alt="" />
+			</div>
+			<div class="datosPersonales">
+				<ul>
+					<li>${nom}</li>
+					<li>${num}</li>
+					<li>${gm}</li>
+				</ul>
+			</div>
+
+			<div class="conocimientos">
+				<ul>`);
+
+					for (let i = 0; i < conocimientos.length; i++) {
+						document.write(`<li>${conocimientos[i]}</li>`);
+					}
+					
+					document.write(`
+				</ul>
+			</div>
+		</div>`)
+
+
+        </script>
+	</body>
+</html>

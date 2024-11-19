@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        document.write("<h2>Ej 1</h2>");
+        for (let i = 0; i <= 200; i++) {
+            let resul = i%2;
+            if(resul == 0){
+                document.write(`<br> ${i}`);
+            }
+            
+        }
+
+        document.write("<h2>Ej 3</h2>");
+        for (let i = 10; i > 0; i--) {
+            document.write (`<p>Hay ${i} botellas sobre la pared. Pero si una botella se cae por mala suerte, entonces quedan ${i-1} botellas sobre la pared</p>`);
+        }
+
+        document.write("<h2>Ej 4</h2>");
+        for (let i = 1; i <= 5; i++) {
+           document.write(`<h${i}> Tipos de encabezados: h${i}</h${i}>`);
+           if(i == 5){
+            for (let j = 5; j >= 1; j--) {
+                document.write(`<h${j}> Tipos de encabezados: h${j}</h${j}>`);
+            }
+            }
+        }
+        document.write("<h2>Otra forma de Ej 4</h2>");
+        let nums =[1,2,3,4,5,5,4,3,2,1];
+        nums.forEach((num) => document.write(`<h${num}> Tipos de encabezado : h${num}</h${num}>`));
+
+        document.write("<h2>Ej 5</h2>");
+        let num = parseInt(prompt("Ingrese un numero",2));
+
+        document.write("<select>");
+            for (let i = 1; i <= num; i++) {
+                document.write(`<option value="${i}">Opcion${i}</option>`);
+            }
+            document.write("</select>");
+
+        document.write("<h2>Ej 6</h2>");
+        
+        let datos = [ "Nombre", "Apellidos ", "Email"];
+        let estado = [ "Soltero", "Casado", "Divorciado"];
+        let hobby = [ "Deportes", "Cine", "Viajes"];
+
+        document.write("<ul>");
+            for (const dato of datos) {
+                document.write(`<li>${dato}</li>`);
+            }
+        document.write("</ul>");
+        document.write("<select>");
+            estado.forEach((estat) => document.write(`<option value= ${estat}>${estat}</option>`));
+
+        document.write("</select>");
+
+
+        document.write(`<table>
+            <tr>
+                `);
+                for (const ho of hobby) {
+                    document.write(`<td>${ho}</td>`)
+                }
+
+        document.write(`</tr></table>`);
+    
+        document.write(`<table>`);
+                for (const ho of hobby) {
+                    document.write(`<tr><td>${ho}</td></tr>`)
+                }
+        document.write(`</table>`);
+
+
+        document.write("<h2>Ej 7</h2>");
+        let datoss = prompt("Dame datos separados x comas").split(",");
+
+        document.write("<ul>");
+            for (const dato of datos) {
+                document.write(`<li>${dato}</li>`);
+            }
+        document.write("</ul>");
+        document.write("<h2>Ej 8</h2>");
+        let leng = prompt("Dime los lenguajes que sabes", "java,javscript,php").split(",").sort();
+        document.write("<ol>");
+            for (const dato of leng) {
+                document.write(`<li><a href='#'>${dato}</a></li>`);
+            }
+        document.write("</ol>");
+
+       
+        document.write("<h2>Ej 11</h2>");
+        let contador = 1;
+        document.write("<table border = 1>");
+            for (let i = 1; i <= 5; i++) {
+                document.write("<tr>");
+                for (let j = 1; j <=10; j++) {
+                    document.write(`<td>${contador}</td>`);
+                    contador++;
+                }
+                document.write(`</tr>`);
+            }
+            document.write(`</table>`);
+
+            document.write("<h2>Ej 12</h2>");
+            let coches = [
+            {marca : "Ford" , motor: "Diesel", anio: 2019 },
+            {marca : "Seat" , motor: "Gasolina", anio: 2017 },
+            {marca : "Renault" , motor: "Diesel", anio: 2020 },
+            {marca : "Renault" , motor: "Diesel", anio: 2022 },
+            {marca : "Renault" , motor: "Gasolina", anio: 2021 }
+            ]
+            let filtro = coches.filter((coche)=>{
+                return coche.motor == "Diesel" && coche.marca == "Renault";
+            });
+            console.log(filtro);
+
+
+            document.write("<h2>Ej 13</h2>");
+            function sustituir(cadena){
+                return cadena.replaceAll("a"," ");
+            }
+            console.log(sustituir("Hola amiga del aniversario."));
+
+            document.write("<h2>Ej 14</h2>");
+            let dato = [
+            {nombre : "Susana", apellido: "Lozano"},
+            {nombre : "Antonio", apellido: "Sotillo"},
+            {nombre : "Iván", apellido: "Merino"}
+            ];
+
+            let dato2 = dato.map(dato => dato.nombre + " " + dato.apellido);
+            console.log(dato2);
+
+            document.write("<h2>Otra forma de hacer el Ej 14</h2>");
+            let datos2 = [];
+            for (datos3 of dato) {
+                datos2.push(datos3.nombre + " " + datos3.apellido);                
+            }
+            console.table(datos2);
+
+    </script>
+</body>
+</html>

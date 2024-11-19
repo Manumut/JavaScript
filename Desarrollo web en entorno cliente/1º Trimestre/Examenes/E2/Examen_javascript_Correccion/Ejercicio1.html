@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const boton = document.createElement("button");
+        boton.textContent = "contar clicks";
+
+        const p = document.createElement("p");
+        let clicks = 0;
+        document.addEventListener("DOMContentLoaded", () =>{
+            document.body.append(boton,p);
+            boton.addEventListener("click",()=>{
+                clicks++;
+                boton.textContent=`click ${clicks}`;
+            });
+        });
+    </script>
+</body>
+</html>

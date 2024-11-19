@@ -1,0 +1,119 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
+        body{
+            font-size: 20px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        header{
+            padding: 50px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        nav{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        div.logo>img{
+            border-radius: 20%;
+        }
+        div.menu{
+            text-align: left;
+        }
+        button{
+            font-size: 28px;
+            border: none;
+            background-color: transparent;
+        }
+        button:hover{
+            color: cadetblue;
+        }
+        div.escondido{
+            display: flex;
+            align-items: end;
+            flex-flow: column;
+            min-height: 100vh;
+            min-width: 20%;
+            padding: 18px;
+            background-color: rgb(68, 100, 36);;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            transition: left 0.5s;
+            z-index: 999;
+
+        }
+        li{
+            list-style: none;
+            color: wheat;
+			margin: 32px;
+			padding: 6px;
+			text-transform: uppercase;
+        }
+       
+        li:hover{
+            color: rgb(94, 218, 235);
+        }
+        
+
+    </style>
+</head>
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <img src="descarga.jfif" alt="">
+            </div>
+            <div class="menu">
+                <button>&#9776;</button>
+                <div class="escondido">
+                    <button>&#9747;</button>
+                    <ul>
+                        <li>Servicios</li>
+                        <li>Proyectos</li>
+                        <li>Soporte</li>
+                        <li>Contacto</li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <script>
+        
+        document.addEventListener("DOMContentLoaded", () => {
+            let botonMenu = document.querySelector("div.menu > button"); //Boton que activa el menu
+            let botonCierre = document.querySelector(".escondido button"); //Boton que cierra el menu
+            let menu = document.querySelector("div.escondido"); //El menu
+            
+            botonMenu.addEventListener("click", () => { //Cuando le de al boton que abre la hambuerguesa pasara lo siguiente
+                if(window.innerWidth > 500){ //ancho de la pantalla mayor que 500
+                    menu.style.left = "80%"; //Le damos un 80% al menu para que se vea bien 
+                    
+                }else{ 
+                    menu.style.left = "0%"; //Se ve menu en toda la pantalla
+                    menu.style.width = "100vw" //Le ponemos el 100% del ancho de la pantalla
+                }
+                
+                menu.addEventListener("mouseleave",()=>{ //Si sale el raton del menu
+                    menu.style.left = "100%"; //Esto dice que se cierre el menu
+                })
+
+            })
+            botonCierre.addEventListener("click", () =>{ //Cuando se pulse la X
+                menu.style.left = "100%"; //Se cierra el menu
+            })
+        })
+    </script>
+</body>
+</html>

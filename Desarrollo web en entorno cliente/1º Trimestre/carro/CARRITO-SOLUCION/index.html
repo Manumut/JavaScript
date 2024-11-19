@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Ecommerce LocalStorage</title>
+		<link
+			rel="stylesheet"
+			href="https://bootswatch.com/5/solar/bootstrap.min.css"
+		/>
+
+		<style>
+			div.compras {
+				position: absolute;
+				z-index: 99;
+				top: 10px;
+				right: 10px;
+				max-width: 600px;
+				display: none;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+			}
+			div.carritoCompras:hover div.compras {
+				display: block;
+			}
+			div.card {
+				min-height: 600px;
+				text-align: center;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+				border: none;
+				padding: 10px;
+			}
+			div.card img {
+				height: 300px;
+				object-fit: cover;
+			}
+		</style>
+	</head>
+	<body>
+		<header
+			id="header"
+			class="container d-flex justify-content-between align-items-center border p-5 my-5 position-relative"
+		>
+			<div class="logo">LOGO</div>
+
+			<div class="carritoCompras">
+				<button class="btn bg-dark text-light">
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="16"
+						height="16"
+						fill="currentColor"
+						class="bi bi-cart"
+						viewBox="0 0 16 16"
+					>
+						<path
+							d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5M3.102 4l1.313 7h8.17l1.313-7zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4m7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4m-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2m7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2"
+						/>
+					</svg>
+					<!-- <span class="badge bg-primary rounded-pill"></span> -->
+				</button>
+
+				<div
+					class="container compras position-absolute bg-dark text-center p-5"
+				>
+					<p>No hay productos seleccionados</p>
+					<!--INICIO ROW -->
+					<!-- <div class="row my-3 py-3 align-items-center border-bottom">
+						<div class="col-md-3">
+							<img
+								src="https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+								alt=""
+								class="img-fluid"
+							/>
+						</div>
+
+						<div class="col-md-3">
+							<p>Producto 1</p>
+						</div>
+
+						<div class="col-md-3">
+							<p>100€</p>
+						</div>
+
+						<div class="col-md-3">
+							<button class="btn-close"></button>
+						</div>
+					</div> -->
+					<!-- FIN ROW -->
+				</div>
+
+				<!-- FIN CARRITO -->
+			</div>
+		</header>
+
+		<section id="productos" class="container border p-5">
+			<div class="row">
+				<!-- INICIO COL -->
+				<!-- <div class="col-md-4">
+					<div class="card border-primary mb-3" style="max-width: 20rem">
+						<div class="card-header">
+							<img
+								src="https://cdn.dummyjson.com/product-images/1/thumbnail.jpg"
+								alt=""
+								class="img-fluid"
+							/>
+						</div>
+						<div class="card-body">
+							<h4 class="card-title">titulo producto</h4>
+							<p class="card-text">descripcion producto</p>
+							<p>100€</p>
+							<button class="btn btn-danger">Añadir al carrito</button>
+						</div>
+					</div>
+				</div> -->
+
+				<!-- FIN COL -->
+			</div>
+		</section>
+
+		<script src="index.js"></script>
+	</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            font-family: "system-ui";
+        }
+
+        .container {
+            max-width: 60%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+
+            .card {
+                padding: 50px;
+                border: solid 1px #ddd;
+                flex: 1;
+                text-align: center;
+
+                img {
+                    border-radius: 50%;
+                    box-shadow: 0 0 10px #000000dd;
+                }
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="container">
+        <div class="card">
+            <img src="https://randomuser.me/api/portraits/men/9.jpg" alt="">
+            <h2>nombre</h2>
+            <h3>email</h3>
+        </div>
+    </div> -->
+
+
+    <script>
+        let users = [
+            { nombre: "Sara", email: "neil.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/women/9.jpg" },
+            { nombre: "Jorge", email: "jorge.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/men/5.jpg" },
+            { nombre: "Edu", email: "edu.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/men/20.jpg" },
+            { nombre: "Antonio", email: "antonio.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/men/19.jpg" },
+            { nombre: "Ines", email: "ines.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/women/4.jpg" },
+            { nombre: "Andrea", email: "andrea.gutierrez@ejemplo.com", foto: "https://randomuser.me/api/portraits/women/17.jpg" },
+        ];
+
+        document.write(`<div class="container">`);
+            users.forEach(user =>{
+                document.write(` 
+        <div class="card">
+            <img src="${user.foto}" alt="">
+            <h2>${user.nombre}</h2>
+            <h3>${user.email}</h3>
+        </div>`)});
+
+        document.write(`</div>`);
+    </script>
+</body>
+
+</html>
+<!-- <script>
+    let precios =[10,15,20];
+    let preciosConIva = precios.map(precio => console.log(precio));
+
+    nombres = [
+    {nombre:"Juan", edad :20},
+    {nombre:"Ana", edad :21},
+    {nombre:"Jorge", edad :25}
+    ]
+
+    document.write("<ul>");
+    
+    //     nombres.forEach(dato =>  {
+    //     document.write(`<li> ${dato.nombre} </li>`)        
+    // });
+
+    // nombres.forEach(dato => {
+    //     if(dato.edad > 20){
+    //         document.write(`<li> ${dato.nombre} </li>`)
+    //     }
+    // });    ESTO SE PUEDE HACER DE LA SIGUIENTE MANERA
+
+    // document.write("</ul>");
+
+    //     let nums = [1,2,3,4,5,6,7];
+    //     let filtrado = nums.filter(num => num>4);
+    //     console.log(filtrado);
+
+</script> -->

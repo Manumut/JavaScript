@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            font-family: "system-ui";
+        }
+        :root {
+            --rojillo: rgb(196, 48, 77);
+            --rojilloC: rgb(255, 149, 170);
+            --rosa: rgb(245, 203, 211);
+
+        } 
+        div{
+            width: 60%;
+            display: flex;
+            margin: auto;
+            border: solid 1px var(--rojillo);
+            padding: 50px;
+            gap: 50px;
+            justify-content: center;
+            flex-flow: wrap;
+
+
+        }
+        input{
+            border: solid 1px var(--rojillo);
+            font-size: 1.2rem;
+            padding: 10px 20px;
+            flex:1;
+        }
+        input:focus{
+            outline: none;
+            background-color: var(--rojilloC);
+        }
+        button:nth-child(2){
+                border:none;
+                background-color: orange;
+                padding: 20px 30px;
+                color: white;
+                flex: 1;
+                cursor: pointer;
+        }
+        button:nth-child(3){
+                border:none;
+                background-color: var(--rosa);
+                padding: 20px 30px;
+                color: white;
+                flex: 1;
+                cursor: pointer;
+        }
+        ul{
+            list-style: none;
+            min-width: 100%;
+        }
+        li{
+            margin: 20px 0;
+            padding: 20px 0;
+
+            border-bottom: solid 1px var(--rojillo);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="tareas">
+        <input type="text" placeholder="Añadir tarea">
+        <button>Agregar tarea</button>
+        <button>Limpiar tarea</button>
+    </div>
+    
+    
+
+
+
+    <script>
+
+        // CONSTANTES Y VARIABLES
+        const tareaInput = document.querySelector('input');
+        const boton = document.querySelectorAll('button');
+        const ul = document.createElement("ul");
+        let tasks = JSON.parse(localStorage.getItem("datos")) || [];
+        
+
+
+
+        // FUNCIONES
+        function mostrarTareas(){
+            limpiar()
+            if(tasks.length > 0){
+                boton[0].parentElement.append(ul);
+                tasks.forEach( task => {
+                    const li = document.createElement("li");
+                    li.textContent=task;
+                    ul.append(li);
+                });
+            }
+            
+            
+        };
+
+        function tareasAdd(){
+            let tarea = tareaInput.value.trim();
+            if(tarea != ""){
+                tasks.push(tarea);
+                almacenarLocal();
+                mostrarTareas();
+            }
+        };
+
+        function almacenarLocal(tarea){
+            localStorage.setItem("datos", JSON.stringify(tasks));
+        }
+        // LIMPIAR UL + VACIAR INPUT + PONER FOCO EN INPUT
+        function limpiar(){
+            tareaInput.value= "";
+            ul.innerHTML= "";
+            tareaInput.focus();
+
+        };
+
+        function limpiarTareasAll(){
+            localStorage.clear();
+            tasks=[];
+            mostrarTareas();
+        };
+
+
+        document.addEventListener("DOMContentLoaded", () =>{
+            mostrarTareas();
+            boton[0].addEventListener("click", () =>{
+                tareasAdd();
+            });
+            
+            boton[1].addEventListener("click", () =>{
+                limpiarTareasAll();
+            });
+        });
+
+        
+        
+        
+
+        
+        // const miArray = [
+        //     {id: 1, nombre:"juan", edad: 25},
+        //     {id: 2, nombre:"maria", edad: 5},
+        //     {id: 3, nombre:"arturo", edad: 15},
+        // ]
+
+        // //Almacena datos. los datos los alomacena como string
+        
+        // // COMBERTIR EN STRING EL OBJETO   JSON STRINGIFY
+        // localStorage.setItem("dato", JSON.stringify(miArray));
+
+
+
+        // // CONVERTIR A OBJETO       JSON.PARSE 
+        // let datosAlmacenados = JSON.parse(localStorage.getItem("datos"));
+        // console.log(datosAlmacenados);
+
+        // datosAlmacenados.forEach(datos => {
+        //     console.log(dato.nombre);
+        // });
+
+        // //Cojemos los datos. los datos q coge los hace como si fuesen un string
+        
+
+
+    </script>
+</body>
+</html>

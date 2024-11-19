@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = ["Antonio","Jose","Ana","Jorge"];
+
+        const input = document.createElement("input");
+        const ul = document.createElement("ul");
+        const li = document.createElement("li");
+
+        document.addEventListener("DOMContentLoaded",() => {
+            document.body.append(input,ul);
+            array.forEach(nombre =>{
+                const li = document.createElement("li");
+                li.textContent=nombre;
+                ul.append(li);
+            });
+
+            input.addEventListener("input", (e) =>{
+                let escrito = e.target.value;
+                let listaLI = document.querySelectorAll("li");
+                listaLI.forEach(li => {
+                    if(!li.textContent.toLowerCase().includes(escrito)){
+                        li.style.display = "none";
+                    }else{
+                        li.style.display = "list-item";
+
+                    }
+                });
+            })
+            
+
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const array = ["Antonio","José","Ana","Jorge"];
+
+        const div = document.createElement("div");
+        const ul = document.createElement("ul");
+
+        function createDiv(){
+            div.innerHTML=`
+            <input type="text" name="name" placeholder="Nombre">
+
+            `;
+            document.body.append(div);
+        }
+
+        function lista(){
+            array.forEach(element => {
+               const li = document.createElement("li");
+               li.textContent=element; 
+            });
+            div.append(element);
+        }
+
+        
+
+        document.addEventListener("DOMContentLoaded",() => {
+            createDiv();
+            lista();
+            const input = document.querySelector("input");
+
+            
+
+        })
+    </script>
+</body>
+</html>

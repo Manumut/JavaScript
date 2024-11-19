@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			a {
+				text-decoration: none;
+				margin: 20px 0;
+				padding: 5px;
+				color: black;
+				text-transform: uppercase;
+				font-weight: bold;
+
+				&:nth-child(2) {
+					margin-top: 50px;
+				}
+				&:hover {
+					background-color: crimson;
+					color: white;
+				}
+			}
+			body {
+				font-size: 15px;
+				font-family: "system-ui";
+			}
+
+			header#header {
+				padding: 50px;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+
+				div.brand {
+					h1 {
+						font-size: 2rem;
+						span {
+							color: royalblue;
+						}
+					}
+				}
+				nav.nav {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					div.menu {
+						text-align: right;
+
+						button {
+							font-size: 2rem;
+							background-color: transparent;
+							border: none;
+						}
+
+						div.navbar {
+							display: flex;
+							align-items: end;
+							flex-flow: column;
+							min-height: 100vh;
+							min-width: 20%;
+							padding: 20px;
+							background-color: yellow;
+							position: absolute;
+							top: 0;
+							left: 50%;
+							z-index: 999;
+							transition: right 0.5s;
+						}
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header id="header">
+			<nav class="nav">
+				<div class="brand">
+					<h1><span>X</span>promt</h1>
+				</div>
+
+				<div class="menu">
+					<button>&#x268C;</button>
+					<div class="navbar">
+						<button>&#10006;</button>
+
+						<a href="#"> Servicios </a>
+						<a href="#"> Proyectos </a>
+						<a href="#"> Soporte </a>
+						<a href="#"> Contacto </a>
+					</div>
+				</div>
+			</nav>
+		</header>
+	</body>
+</html>

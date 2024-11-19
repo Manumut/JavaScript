@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Generador de Curriculum</title>
+		<style>
+			body {
+				font-family: "system-ui";
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				min-height: 100vh;
+			}
+
+			section {
+				max-width: 50%;
+				text-align: center;
+
+				article {
+					border: solid 1px;
+					padding: 50px;
+					margin: 50px 0;
+				}
+			}
+		</style>
+	</head>
+	<body>
+        <form action="form.php" method=" post">
+            <input type="text" name="nombre" placeholder="Nombre">
+            <input type="submit" value="enviar">
+
+        </form>
+
+		<section id="servicios">
+			<article>
+				<h2>Titulo1</h2>
+				<p>
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate
+					aliquid, distinctio ea mollitia earum, nisi dolores, minus enim magnam
+					animi doloribus perferendis molestiae consequatur fuga natus quas
+					corrupti tenetur est!
+				</p>
+                <a href="https://google.es">Más información</a>
+			</article>
+
+			<article>
+				<h2>Titulo2</h2>
+				<p>
+					Vitae repellendus magni aut, tempora iste doloremque ab fugit
+					reprehenderit asperiores nam minima, modi sint obcaecati saepe
+					veritatis ullam! Architecto eum est necessitatibus, harum asperiores
+					sapiente doloribus temporibus ratione amet!
+				</p>
+			</article>
+
+			<article>
+				<h2>Titulo3</h2>
+				<p>
+					Vitae eveniet suscipit ad iure cum pariatur numquam maxime sequi
+					dignissimos dolorum laudantium reiciendis est accusamus incidunt quis
+					eius inventore, doloribus ratione. Temporibus quisquam minima officiis
+					modi fugit esse quas.
+				</p>
+			</article>
+		</section>
+
+		<script>
+            const titulo1 = document.querySelector("section#servicios article:first-child h2");
+            console.log(titulo1);
+            titulo1.textContent = "titulo cambiado";
+            titulo1.innerHTML = "<i>titulo cambiado</i>";
+
+            const enlace = document.querySelector("article:first-child a");
+            console.log(enlace.getAttribute("href"));
+            const enl = enlace.getAttribute("href");
+            const enla = enlace.setAttribute("href", "https://www.marca.com/");
+
+
+        </script>
+	</body>
+</html>

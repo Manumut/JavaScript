@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            max-width: 70%;
+            margin: auto;
+            text-align: center;
+        }
+
+        .botones,
+        .pantallas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-flow: wrap;
+            padding: 50px;
+            margin: 50px 0;
+
+            div {
+                border: 1px solid black;
+                padding: 40px;
+            }
+        }
+
+        .botones {
+            background-color: rgb(148, 190, 225);
+
+            a {
+                text-decoration: none;
+                color: white;
+                background-color: crimson;
+                min-width: 400px;
+                padding: 10px 20px;
+
+                &:hover {
+                    background-color: blueviolet;
+                }
+            }
+        }
+    </style>
+
+    <script>
+        const btn1 = document.querySelector(
+            ".botones a:first-child"
+        );
+        console.log(btn1);
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+
+            const titulos = document.querySelectorAll("h2");
+            const imagenes = document.querySelectorAll("img");
+            const pantallas =  document.querySelectorAll(".pantallas > div");
+
+            const btns = document.querySelectorAll(".botones a");
+            console.log(btns);
+
+            btns[0].addEventListener("click", (e) => {
+                e.preventDefault();
+                pantallas.forEach(
+                    (pantalla) => (pantalla.style.backgroundColor = "black")
+                );
+            })
+
+            btns[1].addEventListener("click", (e) => {
+                e.preventDefault();
+                pantallas[0].style.backgroundColor = "orange";
+            })
+
+            btns[2].addEventListener("click", (e) => {
+                e.preventDefault();
+                titulos.forEach( el =>{
+                    el.style.fontSize = "2rem";
+                });
+            })
+
+            btns[3].addEventListener("click", (e) => {
+                e.preventDefault();
+                imagenes.forEach( el =>{
+                    el.src = "https://picsum.photos/300";
+                });
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <!-- .botones>a{Boton$}*13+(.pantallas>div*3>(h2{Pantalla $}+img[src='https://picsum.photos/200'])) -->
+    <div class="container">
+        <div class="botones">
+            <a href="">Cambiar color de fondo a todas las pantallas</a>
+            <a href="">Boton2</a>
+            <a href="">Cambiar tamaño de los titulos</a>
+            <a href="">Cambiar imagenes</a>
+            <a href="">Boton5</a>
+            <a href="">Boton6</a>
+            <a href="">Boton7</a>
+            <a href="">Boton8</a>
+            <a href="">Boton9</a>
+            <a href="">Boton10</a>
+            <a href="">Boton11</a>
+            <a href="">Boton12</a>
+            <a href="">Boton13</a>
+        </div>
+        <div class="pantallas">
+            <div>
+                <h2>Pantalla 1</h2>
+                <img src="https://picsum.photos/200" alt="" />
+            </div>
+            <div>
+                <h2>Pantalla 2</h2>
+                <img src="https://picsum.photos/200" alt="" />
+            </div>
+            <div>
+                <h2>Pantalla 3</h2>
+                <img src="https://picsum.photos/200" alt="" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

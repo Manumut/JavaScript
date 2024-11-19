@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container{
+            max-width: 70%;
+            margin: auto;
+            border: solid 1px crimson;
+        }
+            .botones,.pantallas{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .botones a{
+                text-decoration: none;
+                flex: 1;
+                width: 50%;
+                background-color: blueviolet;
+                color: white;
+            }
+        
+    </style>
+</head>
+<body>
+
+        <div class="botones"><a href="">Boton1</a><a href="">Boton2</a><a href="">Boton3</a><a href="">Boton4</a><a href="">Boton5</a><a href="">Boton6</a><a href="">Boton7</a><a href="">Boton8</a><a href="">Boton9</a><a href="">Boton10</a><a href="">Boton11</a><a href="">Boton12</a><a href="">Boton13</a></div>
+        <div class="pantallas">
+            <div>
+                <h2>Pantalla 1</h2>
+                <img src="https://picsum.photos/200" alt="">
+            </div>
+            <div>
+                <h2>Pantalla 2</h2>
+                <img src="https://picsum.photos/200" alt="">
+            </div>
+            <div>
+                <h2>Pantalla 3</h2>
+                <img src="https://picsum.photos/200" alt="">
+            </div>
+        </div>
+
+    
+    <script>
+        const boton = document.querySelector("button");
+        console.log(boton)
+        boton.addEventListener("click", (e) => {
+            boton.style.backgroundColor = "salmon";
+        });
+
+    </script>
+</body>
+</html>

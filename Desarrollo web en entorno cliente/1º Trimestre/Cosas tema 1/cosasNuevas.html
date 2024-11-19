@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: 'Times New Roman', Times, serif;
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hola</h1>;
+    <h2>Adios</h2>
+    <script>
+        //El const muta si le añades cosas a un const q es un array u objeto. 
+        //Con delete num.nombre, x ejemplo, quitas el nombre del objeto
+        const num =[1,2,3,4];
+        num.push(5);//añade al final del array;
+        num.pop();//Elimina el ultimo elemento del array
+        let num2 = [...num];//copia lo q vale num en num2, pero si modificas el original el copiado no se modifica
+
+        const nums = {
+            nombre: "redu",
+            edad:25,
+        };
+
+        let miArray=Object.entries(nums); //Transforma el objeto a array.
+        let key=Object.keys(nums); //Devuelve cada clave del array.
+        let values=Object.values(nums); //Devuelve cada valor del array.
+
+        const persons = {
+            name: "juan",
+            age: 40,
+        };
+
+        Object.freeze(persons);//No permite añadir cosas ni borrar ni cambiar
+        persons.peso=90;
+        delete persons.name;
+
+        Object,seal(persons);//No permite añadir ni borrar cosas pero si cambiar el valor ya creeado en el objeto
+        persons.lengua="Española";
+        persons.name="Antonio";
+
+        "use strict";//Lo pondremos al principio del codigo para q te de avisos de cosas, x ejemplo lo anterior
+
+    </script>
+</body>
+</html>

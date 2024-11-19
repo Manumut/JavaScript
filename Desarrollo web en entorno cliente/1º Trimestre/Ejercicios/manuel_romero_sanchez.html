@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.write("<h2>Ej 1</h2>");
+            let peso=parseInt(prompt("Dime tu peso en Kg",70));
+            let altura =parseFloat(prompt("Dime tu altura en metros",1.70));
+
+        function calcular(peso, altura){
+
+            let IMC = (peso/Math.pow(altura,2)).toFixed(2);
+            return IMC;
+        }
+        document.write(`${calcular(peso,altura)}`);
+
+        
+        document.write("<h2>Ej 2</h2>");
+            let dia = parseInt(prompt("dime una cantidad de dias", 4));
+
+            let horas = (dia*24);
+            let mins = (dia*1440);
+            let seg = (dia*86400);
+
+            document.write(`${dia} dias es igual a ${horas} horas o ${mins} minutos o ${seg} segundos`);
+
+            document.write("<h2>Ej 3</h2><break>");
+            let word = prompt("Digame una palabra en ingles","cat");
+            switch (word) {
+                case "cat":
+                    document.write("Perro")
+                    break;
+                case "dog":
+                    document.write("Gato")
+                    break;
+                case "yellow":
+                    document.write("Dormir")
+                    break;
+                case "sleep":
+                    document.write("Amarillo")
+                    break;
+                default:
+                    document.write("No tiene traduccion")
+                    break;
+            }
+            
+            // forma del profesor
+            // document.write("<h2>Ej 4</h2><break>");
+            //     function ordenar(palabra){
+            //         let palabras = palabra.split("").sort((a,b) => a.locale.Compare(b)).join("");
+
+            //         console.log(palabras);
+            //     }
+
+
+            document.write("<h2>Ej 4</h2>");
+            let frase = prompt("Diga algo","Yo soy el que soy y me escupo en la mano").split("").sort((a,b) => a.localeCompare(b)).join("");
+            document.write(frase);
+            
+            document.write("<h2>Ej 5</h2>");
+            let fraser = prompt("Diga algo","Yo soy el que soy y me escupo en la mano").split("").reverse().join("");
+            document.write(fraser);
+
+
+            // FORMA DEL PORFESOR
+            document.write("<h2>Ej 6</h2><break>");
+                let frases = "hola q lo q";
+            function mostrarF(frases){
+
+                let palabras = frases.toLowerCase().split(` `);
+                let frecuencia={};
+                for (const palabra of palabras) {
+                   if(frecuencia[palabra]){
+                    frecuencia[palabra] +=1 ;
+                   }else{
+                    frecuencia[palabra] = 1;
+                   } 
+                }
+                return frecuencia;
+            }
+            for (const key in frases) {
+                document.write(mostrarF(frases));
+
+            }
+
+
+
+            document.write("<h2>Ej 6</h2><break>");
+            let palas = prompt("Diga algo","Yo soy el que soy y me escupo en la mano").split(" ");
+
+            // //Este codigo quita los repetidos
+            // let palabras = palas.filter((item,index) =>{
+            //     return palas.indexOf(item) === index;
+            // });
+            let cantidades = [];
+            for (const e1 of palas) {
+                if(cantidades[e1]){
+                    cantidades[e1]++;
+                }else{
+                    cantidades[e1]=1;
+                }
+            }
+            for (const key in cantidades) {
+                document.write(`<p> ${key} => ${cantidades[key]}</p>`);
+            }
+
+
+
+            // FORMA DEL PROFE
+            // document.write("<h2>Ej 7</h2><break>");
+            //     function mostrarF(frase){
+
+            //     let palabras = frase.toLowerCase().split(` `);
+            //     let frecuencia={};
+            //     for (const palabra of palabras) {
+            //     if(frecuencia[palabra]){
+            //         frecuencia[palabra] +=1 ;
+            //     }else{
+            //         frecuencia[palabra] = 1;
+            //     } 
+            //     }
+            //     let miArray = Object.entries(frecuencia);
+            //     miArray.sort((a,b) => b[1]-a[1]);
+            //     console.log(`La palabra mas repetida es: ${miArray[0][0]} y se repite ${miArray[0][1]} veces`)
+            //     }
+            //     mostrarF("Hola mundo del mundo");
+
+
+            
+            document.write("<h2>Ej 7</h2><break>");
+            palas = prompt("Diga algo","Yo soy el que soy y me escupo en la mano").split(" ");
+            
+            palabras = palas.filter((item,index) =>{
+                return palas.indexOf(item) === index;
+            });
+            cantidades = [];
+            palabras.forEach(e1 =>{
+                cont = 0;
+                palas.forEach(e2 =>{
+                    if (e1 == e2) cont++;
+                })
+                cantidades.push(cont);
+            });
+
+            let mayor = cantidades[0]; 
+            let mayorPos = 0;
+            cont = 0;
+
+            cantidades.forEach(el => {
+                if(mayor<el){
+                    mayor = el; 
+                    mayorPos= cont; 
+                }
+                cont++; 
+            })
+
+            document.write(`<p>El mayor es ${palabras[mayorPos]} porque aparece ${mayor} veces</p>`);
+
+            document.write("<h2>Ej 8</h2><break>");
+            palas = prompt("Diga algo","Yo soy el que soy y me escupo en la mano");
+            function separar(palas) {
+            let separa = palas.split(" ");
+            let obj = {};
+            separa.forEach(element => {
+                    let el =0;
+                    for (let i = 0; i < separa.length; i++) {
+                    if (separa[i]===element) {
+                        el++;
+                        separa[i] ="";
+                    }            
+                    }
+                    if (element !=="") {
+                        obj[element] =el;
+
+                    }       
+            });
+            console.log(obj);
+            return obj;
+
+            }
+            separar(palas); 
+
+                                
+                                
+
+            document.write("<h2>Ej 9</h2><break>");
+                const asignaturas = {
+                    'Matematicas':60,
+                    'Fisica': 45,
+                    'Quimica': 53
+                }
+
+            let total = 0; 
+            for (const clave in asignaturas){
+                total += asignaturas[clave]
+
+            }
+            let miArray = Object.entries(asignaturas);
+            miArray.sort((a,b) => b[1]-a[1]);
+
+
+            document.write(`<p>El total de todas las horas es de: ${total}</p>`);
+            document.write(`La asignatura con mas horas es: ${miArray[0][0]} `);
+            document.write(`La asignatura con menos horas es: ${miArray[2][0]} `);
+
+
+
+
+
+            document.write("<h2>Ej 10 y 11</h2><break>");
+
+            let frutas= {
+                'platano':1.35,
+                'manzana':0.80,
+                'pera':0.85,
+                'naranja':0.70
+            }
+            for (const clave in frutas) {
+                frutas[clave] = (frutas[clave] * 1.1).toFixed(2);
+                document.write(`La fruta ${clave} vale ${frutas[clave]}</p>`);
+            }
+
+            let kg = 2;
+            let fruta = "pera";
+
+            for(const clave in frutas){
+                let claveMin = clave.toLowerCase();
+                if(claveMin==fruta){
+                    let kilos = frutas[clave]*kg;
+                    document.write(`Si pido ${kg} kilos de ${fruta} me costara ${kilos}`)
+                }
+            }
+
+            let array = Object.entries(frutas);
+
+            array = array.sort((a,b) => a[1]-b[1])
+            document.write(`<p>La fruta ${array[0][0]} es la que menos precio tiene con una cantidad de ${array[0][1]}</p>`);
+
+            
+            document.write("<h2>Ej 12</h2><break>");
+            let dias = prompt("Diga una fecha de la siguiente forma dd/mm/yyyy","25/05/2005").split("/");
+            document.write(`<p>Dia ${dias[0]}, Mes ${dias[1]}, Año ${dias[2]}</p>`)
+
+
+
+            document.write("<h2>Ej 13</h2><break>");
+            palas = prompt("Diga algo","Esto es una oracion que digo");
+
+            function cambio(palas) {
+            let reem =  palas.replaceAll('a', 'x').replaceAll('e','y').replaceAll('i','z');
+                return reem;
+            }
+            document.write(cambio(palas));
+
+            document.write("<h2>Ej 14</h2><break>");
+            let pr = ["Aguallo","Manu","Diesel","Jaime"];
+            let orden = pr.sort();
+            document.write(pr);
+
+            document.write("<h2>Ej 15</h2><break>");
+            palas = prompt("Diga algo","Esto es una oracion que digo");
+
+            function eliminar(palas){
+                let cade = palas.replaceAll('a', '').replaceAll('e', '').replaceAll('i', '').replaceAll('o', '').replaceAll('u', '');
+                return cade;
+            }
+            document.write(eliminar(palas));
+
+            document.write("<h2>Ej 16</h2><break>");
+            let num = [1,2,3,4,5];
+            let num2 = [5,4,6,7,2];
+            function combinar(num, num2){
+                let num3 = [];
+                for(let i = 0; i<num.length; i++){
+                    for(let j= 0; j<num2.length;j++){
+                        if(num[i]===num2[j]){               
+                            num3.push(num[i]);
+                            break;
+                        }
+                    }
+                }
+                return num3;
+            }
+            document.write(combinar(num,num2));
+
+
+            document.write("<h2>Ej 17</h2><break>");
+                let usuarios = [
+                    {nombre :"Susana", apellido:"Lozano"},
+                    {nombre :"Antonio", apellido:"Sotillo"},
+                    {nombre :"Iván", apellido:"Merino"}
+                ];
+                let usuarios2=[];
+                for (const clave in usuarios) {
+                    usuarios2.push(usuarios[clave].nombre +" "+ usuarios[clave].apellido);
+                }
+                document.write(usuarios2);
+                
+
+                document.write("<h2>Ej 18</h2><break>");
+                    
+                let recor = prompt("Cuantos kilometros has corrido",8);
+
+                sex(recor);
+                function sex(recor){
+                    recor *= 7;
+                    if(recor<0){
+                        document.write("Cantidad no valida");
+                    }else if(recor<=10){
+                        document.write("Correrdor novato");
+                    }else if(recor>10 && recor<=30){
+                        document.write("Correrdor iniciado");
+                    }else if(recor>30 && recor<=40){
+                        document.write("Correrdor experto");
+                    }else if(recor>=50){
+                        document.write("Correrdor nivel Élite");
+                    }
+                }
+
+             document.write("<h2>Ej 19</h2><break>");
+            
+            let animal = prompt("Introduce el nombre de un animal:", "rana").toLowerCase();
+            let clase;
+
+            switch (animal) {
+                case "paloma":
+                    clase = "Ave";
+                    break;
+                case "perro":
+                    clase = "Mamífero";
+                    break;
+                case "rana":
+                    clase = "Anfibio";
+                    break;
+                case "gato":
+                    clase = "Mamífero";
+                    break;
+                case "serpiente":
+                    clase = "Reptil";
+                    break;
+                default:
+                    clase = "Animal no disponible";
+            }
+
+            if (clase === "Animal no disponible") {
+            } else {
+                document.write(`<h1>La clase de ${animal} es: ${clase}</h1>`);
+            }
+
+                document.write("<h2>Ej 20</h2><break>");
+
+                let presu = prompt("Cuanto presupuesto hay",4);
+        let mat = 0;
+        let man = 0;
+        let lic = 0;
+        obra(presu);
+        function obra(presu) {
+            if (presu < 0) {
+                document.write("<h1>Cantidad no valida</h1>");
+            }else{
+                mat = presu*0.5;
+                man = presu*0.2;
+                lic = presu*0.3;
+                document.write("<h1>En materiales hemos gastado "+mat+"€, en mano de obra hemos gasatado "+man+"€ y en licencias hemos gastado "+lic+"€</h1>")
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const div = document.createElement("div");
+        const boton = document.createElement("button");
+
+        function createDiv(){
+            div.innerHTML=`
+                <input type="text" name="name" placeholder="Nombre">
+                <button>Enviar</button>
+            `;
+            document.body.append(div);
+        }
+
+        document.addEventListener("DOMContentLoaded",() => {
+            createDiv();
+
+            boton.addEventListener("click",()=>{
+                let cont = input.value.trim();
+                if(cont == ""){
+                    const error = document.createElement("p")
+                    error.textContent = "Campo obligatorio";
+                    document.body.append(error)
+                }else{
+                    const acierto = document.createElement("p")
+                    acierto.textContent = "Campo obligatorio";
+                    document.body.append(acierto)
+                }
+            })
+        })
+    </script>
+</body>
+</html>

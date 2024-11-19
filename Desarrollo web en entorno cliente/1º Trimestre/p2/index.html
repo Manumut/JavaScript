@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let a = 10;
+        let nombre = "man";
+        let mayor = true;
+        let edad = 30;
+        let mensaje = ""
+        
+        //El console.log() es para ver el resultado en la consola y el document.write() para verlo en la página
+        console.log(a+8);
+        
+        //TEMPLATE STRING 
+        document.write(`HOLA ${nombre} `);
+
+        document.write(`<h1>Titulo</h1>
+            <h2> segundo titulo</h2>`);
+
+        // CONDICIONALES
+        if( !true ){
+            document.write("se cumple");
+        } else{
+            document.write("no se cumple");
+        }
+
+        //Estas dos cosas siguientes son lo mismo pero puesto de otra forma
+        if(edad > 18){
+            mensaje = "Eres mayor de edad";
+        }else{
+            mensaje = "Eres menor de edad";
+        }
+
+        //operador ternario
+        mensaje = edad > 18 ? "eres mayor de edad" : "eres menor de edad";
+        document.write(mensaje);
+
+        let eda = prompt("Dime tu edad");
+
+        document.write(eda);
+        
+        /*let n1 = parseInt (prompt("Dime tu nota 1"));
+        let n2 = parseInt (prompt("Dime tu nota 2"));
+        let media = ((n1 + n2) / 2)
+        document.write(`Tu nota es : ${media}`);*/
+
+        let anio = parseInt (prompt ("Dime tu edad"));
+        if(anio >= 18){
+            document.write("<h1>Eres mayor de edad</h1>")
+        }else{
+            document.write("<h1>No eres mayor de edad</h1>")
+        }
+
+        //ARRAY
+        let nums = [1,2,3,4,5,6];
+        console.log(nums);
+
+            nums.push(7);
+            console.log(nums);
+    
+            nums.pop();
+            console.log(nums);
+    
+            nums.shift();
+            console.log(nums);
+
+            nums.unshift(true);
+            console.log(nums);
+
+            let nums1 = [1,2,3,4];
+            let nums2 = [5,6,7,8]
+            let nums3 = nums1.concat(nums2);
+
+            let nombres = ["manu", "Redu", "AGCH"];
+            let nombresconSep = nombres.join("-");
+            console.log(nombres);
+            console.log(typeof nombresconSep);
+
+
+            let num=[1,2,3,4,5,6,7,8];
+            let num2=num.slice(0,3);
+            console.log(num2);
+
+            num.splice(0,2,"a");
+            console.log(num);
+
+            console.log(num.indexOf(6));
+            
+            
+            //STRING
+            let nomb = "Hola mundo mundial del universo";
+            let palabras = nombre.split("o");
+            console.log(palabras);
+
+    </script>
+</body>
+</html>

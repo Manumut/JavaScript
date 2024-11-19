@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        const select = document.createElement("select");
+        const div = document.createElement("div");
+
+        function createSelect(){
+            select.innerHTML=`
+            
+                <option value="blue">Azul</option>
+                <option value="green">Verde</option>
+                <option value="yellow">Amarillo</option>
+ 
+        `;
+        document.body.append(select);
+        }
+
+        function prefe(){
+            const select=document.querySelector("select");
+            localStorage.setItem("color",select.value)
+        }
+
+        document.addEventListener("DOMContentLoaded",() => {
+            createSelect();    
+
+            select.addEventListener("change", () =>{
+                document.body.style.backgroundColor = select.value;
+                localStorage.setItem("color",select.value);
+            })
+        })
+    </script>
+    
+</body>
+</html>
+
+

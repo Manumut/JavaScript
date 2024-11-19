@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/vapor/bootstrap.min.css">
+    <style>
+        li{
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            border: solid 1px;
+            background-color: rgb(131, 7, 48);
+            color: white;
+            padding: 1%;
+            
+        }
+        .estilo{
+            background-color: green;
+            text-decoration:line-through;
+        }
+        .remove{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container border p-5">
+        <div class="tareas row p-2">
+            <div class="col-md-6 offset-md-3">
+                <input type="text" placeholder="Añadir tareas" class="form-control">
+                <input type="search" placeholder="Buscar tareas" class="form-control">
+                <button class="btn btn-primary my-3 col-md-4 offset-md-8 rounded-5">Añadir tarea</button>
+                <div class="listaTareas">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+    function $(elemento){
+        return document.querySelector(elemento)
+    }
+
+    function $$(elemento){
+        return document.querySelectorAll(elemento)
+    }
+
+    document.addEventListener("DOMContentLoaded",()=>{
+
+        let input = $("div.tareas>div>input:nth-child(1)");
+        let boton = $("div.tareas button");
+        let busca = $("div.tareas>div>input:nth-child(2)")
+        let listaTareas = $("div.listaTareas");
+        let ul = crearElemeto("ul");
+        function limpiar(element) {
+            element.value="";
+            element.focus();
+        }
+        function crearElemeto(element){
+            return document.createElement(element)
+        }
+        function code(input){
+            if (input.value.trim() != "") {
+                let tarea = input.value.trim();
+                let li = crearElemeto("li");
+                let boton=crearElemeto("button")
+                li.textContent =tarea;
+                boton.textContent ="X";
+                boton.addEventListener("click",()=> {
+                    li.remove();
+                });
+                ul.append(li);
+                listaTareas.append(ul);
+                li.append(boton)
+                limpiar(input);
+                li.addEventListener("click",()=>{li.classList.toggle("estilo")});
+            }
+        }
+        
+        boton.addEventListener("click",()=>{
+            code(input);
+        });
+        input.addEventListener('keydown',(e)=>{
+            if (e.key ==='Enter') {
+                code(input);
+            }
+        })
+        busca.addEventListener("input",(e) =>{
+            let busca = e.target.value;
+            let listas =$$("li");
+            listas.forEach(el => {
+                let p = el.textContent;
+                p = p.split("");
+                p.pop();
+                p = p.join("");
+                if(!p.includes(busca)){
+                    el.classList.add("remove")
+                }
+                if(p.includes(busca)){
+                    el.classList.remove("remove")
+                }
+            })
+            
+        })
+    })
+</script>
+</html>

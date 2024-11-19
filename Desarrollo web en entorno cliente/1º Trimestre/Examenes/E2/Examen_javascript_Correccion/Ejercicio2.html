@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            position: absolute;
+            z-index: 999;
+        }
+        button:nth-child(2){
+            top: 0px;
+            left: 0px;
+        }
+        button:nth-child(3){
+            left: 0px;
+            top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <script>
+        const img = document.createElement("img");
+        img.src="https://picsum.photos/200/300";
+        const zoom = document.createElement("button");
+        zoom.textContent="Zoom in";
+        const out = document.createElement("button");
+        out.textContent="Zoom out";
+        let sum=1;
+        document.addEventListener("DOMContentLoaded",() =>{
+            document.body.append(img,zoom,out);
+            zoom.addEventListener("click",()=>{
+                img.style.transform= `scale(${sum+=0.2})`;
+            });
+            out.addEventListener("click",()=>{
+                img.style.transform= `scale(${sum-=0.2})`;
+            })
+        })
+    </script>
+</body>
+</html>
