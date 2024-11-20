@@ -34,11 +34,13 @@
 
 
     <script>
+        const cargando = document.querySelector('.cargando')
         const row = document.querySelector('.row');
         const url ="https://www.rtve.es/api/noticias.json";
         fetch(url)
         .then(res => res.json())
         .then(datos => {
+            cargando.style.display="none";
             datos.page.items.forEach(dato => {
                row.innerHTML+= `
                <div class="col-md-4">
