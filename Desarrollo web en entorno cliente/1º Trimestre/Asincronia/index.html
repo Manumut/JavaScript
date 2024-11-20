@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Datos Fetch</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+    <style>
+        .cargando{
+            width: 50px;
+            height: 50px;
+            border: solid 10px white;
+            border-radius: 50%;
+            border-top-color: black ;
+            animation: rotar 1s linear infinite;
+        }
+
+        @keyframes rotar {
+            from {transform: rotate(0deg);}
+            to {transform: rotate(360deg)}
+        }
+    </style>
+</head>
+<body>
+    <div class="cargando"></div>
+    <div class="container my-5">
+        <div class="row">
+            
+        </div>
+    </div>
+
+
+
+
+
+    <script>
+        const row = document.querySelector('.row');
+        const url ="https://www.rtve.es/api/noticias.json";
+        fetch(url)
+        .then(res => res.json())
+        .then(datos => {
+            datos.page.items.forEach(dato => {
+               row.innerHTML+= `
+               <div class="col-md-4">
+                <div class="card text-white bg-primary mb-3">
+                    <div class="card-header">
+                        <img src="${dato.image}" class="img-fluid">
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">${dato.title} title</h4>
+                        <a href="detalles.html?id" class="btn btn-danger my-3">Más detalles</a>
+                    </div>
+                  </div>
+            </div>
+               `;
+            });
+        });
+    </script>
+</body>
+</html>
