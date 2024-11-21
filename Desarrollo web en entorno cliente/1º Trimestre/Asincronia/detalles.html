@@ -11,8 +11,6 @@
         <div class="row">
             <div class="col-md-8 offset-md-2">
 
-               
-
             </div>
         </div>
     </div>
@@ -20,8 +18,7 @@
     <script>
         const colmd4 = document.querySelector(".row > div");
         const url ="https://www.rtve.es/api/noticias.json";
-        const host = window.location.href;
-        const id = host.split("?id=")[1];
+        const id = new URL(window.location.href).searchParams.get('id')
 
         fetch(url)
         .then(resp => resp.json())
