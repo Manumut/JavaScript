@@ -44,7 +44,7 @@
         .then(res => res.json())
         .then(datos => {
             cargando.style.display="none";
-            datos.page.items.forEach(dato => {
+            datos.page.items.forEach((dato, id) => {
                row.innerHTML+= `
                <div class="col-md-4">
                 <div class="card text-white bg-primary mb-3">
@@ -53,9 +53,10 @@
                     </div>
                     <div class="card-body">
                       <h4 class="card-title">${dato.title} </h4>
-                        <a href="detalles.html?id" class="btn btn-danger my-3">Más detalles</a>
+                        <a href="detalles.html?id=${id}" class="btn btn-danger my-3">Más detalles</a>
                     </div>
                   </div>
+
             </div>
                `;
             });

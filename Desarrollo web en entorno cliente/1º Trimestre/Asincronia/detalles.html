@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://bootswatch.com/5/darkly/bootstrap.min.css">
+</head>
+<body>
+    <div class="container my-5 border p-5">
+        <div class="row">
+            <div class="col-md-8 offset-md-2">
+
+               
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const colmd4 = document.querySelector(".row > div");
+        const url ="https://www.rtve.es/api/noticias.json";
+        const host = window.location.href;
+        const id = host.split("?id=")[1];
+
+        fetch(url)
+        .then(resp => resp.json())
+        .then(datos => {
+            const noticia = datos.page.items;
+            colmd4.innerHTML=`
+                <div class="card text-white bg-primary mb-3 p-2">
+                    <div class="card-header">
+                        <img src="${noticia[id].image}" alt="" class="img-fluid">
+                    </div>
+                    <div class="card-body">
+                      <h4 class="card-title">${noticia[id].title}</h4>
+                      <p class="card-text">${noticia[id].summary}</p>
+                      <a href="index.html" class="btn btn-info">Volver</a>
+                    </div>
+                </div>
+            `
+        })
+
+    </script>
+    
+</body>
+</html>
