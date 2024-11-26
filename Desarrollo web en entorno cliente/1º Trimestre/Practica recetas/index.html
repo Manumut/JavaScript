@@ -45,9 +45,23 @@
 
 <div class="container my-5" id="categorias">
     <div class="row">
-        <select class="col-md-6 offset-md-3 py-2    ">
+        <select class="col-md-6 offset-md-3 py-2" onchange="mostrarRecetasDeCateg(this.value)">
             <option value="" disabled selected>--Seleccionar Categoría</option>
         </select>
+    </div>
+</div>
+
+<div class="container my-5" id="recetas">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3">
+                <div class="card-header">Header</div>
+                <div class="card-body">
+                  <h4 class="card-title">Primary card title</h4>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                </div>
+              </div>
+        </div>
     </div>
 </div>
 
@@ -98,6 +112,7 @@
             fetch(url).then(respuesta => respuesta.json()).
             then(datos => {
                 datos.categories.forEach(dato => {
+                    // console.log(dato.strCategory)
                     selectorCategorias.innerHTML += `
                         <option value="${dato.strCategory}"> ${dato.strCategory} </option>
                     `;
@@ -109,10 +124,22 @@
         
         cargarCategorias();
 
+        function mostrarRecetasDeCateg(cat){
+        const url ="https://www.themealdb.com/api/json/v1/1/filter.php?c="+cat;
+ 
+
+        }
 
 
 
+//         function cargarDatosurl  (url)  {
+//     fetch (url). then (repsuesta=>respuesta.josn()).then (datos =>{
+//         return datos  
+//         // y ya lo q devuelve lo uswas en otra funcion para hacer el foreach
 
+//     })
+// }
+//     cargardatos().forEach
 
 
 
