@@ -37,7 +37,7 @@
         <nav class="col-auto ms-auto">
             <a href="index.html">Inicio</a>
             <a href="rexFavoritas.html">recetas favoritas</a>
-            
+
         </nav>
     </div>
 </header> 
@@ -53,7 +53,7 @@
 
 <div class="container my-5" id="recetas">
     <div class="row">
-        <div class="col-md-4">
+         <!--<div class="col-md-4">
             <div class="card text-white bg-primary mb-3">
                 <div class="card-header">Header</div>
                 <div class="card-body">
@@ -61,7 +61,7 @@
                   <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                 </div>
               </div>
-        </div>
+        </div> -->
     </div>
 </div>
 
@@ -106,13 +106,21 @@
 
         // VARIABLES Y CONSTANTES
         let selectorCategorias = document.querySelector('#categorias select');
-        const url ="https://www.themealdb.com/api/json/v1/1/categories.php";
+        let row = document.querySelector('#recetas .row' )
+        // funcion para obtener los datos de la apu pasandole la urlÇ
+        function obtenerDatos(url){
+            return fetch(url)
+            .then(respuesta => respuesta.json())
+        }
 
+        // funcion
         function cargarCategorias(){
-            fetch(url).then(respuesta => respuesta.json()).
-            then(datos => {
+            const url1 ="https://www.themealdb.com/api/json/v1/1/categories.php";
+
+            obtenerDatos(url1)
+            .then(datos => {
                 datos.categories.forEach(dato => {
-                    // console.log(dato.strCategory)
+                    console.log(dato.strCategory)
                     selectorCategorias.innerHTML += `
                         <option value="${dato.strCategory}"> ${dato.strCategory} </option>
                     `;
@@ -125,10 +133,45 @@
         cargarCategorias();
 
         function mostrarRecetasDeCateg(cat){
-        const url ="https://www.themealdb.com/api/json/v1/1/filter.php?c="+cat;
- 
-
+            const url2 ="https://www.themealdb.com/api/json/v1/1/filter.php?c="+cat;
+            row.innerHTML=``;
+            obtenerDatos(url2)
+            .then(recetas => {
+                recetas.meals.forEach(dato =>{
+                    row.innerHTML +=`
+                        <div class="col-md-4">
+                            <div class="card text-white bg-primary mb-3">
+                                <div class="card-header">
+                                    <img src="${dato.strMealThumb}" class="img-fluid"/>    
+                                </div>
+                                <div class="card-body">
+                                <h4 class="card-title">
+                                    ${dato.strMeal}
+                                </h4>
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergente" onclick="mostrarReceta(${dato.idMeal})">
+                                    Ver Receta
+                                </button> 
+                                </div>
+                            </div>
+                        </div>
+                    `
+                });
+            });
         }
+
+        // https://www.themealdb.com/api/json/v1/1/lookup.php?i=
+
+        // ABRIR MODAL CON LOS DATOS DE LA RECETA
+        function mostrarReceta(idReceta){
+            const url3 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+idReceta;
+            obtenerDatos(url3)
+            .then(receta =>{
+                console.log(receta.meals[0].strMeal);
+                let tit = document.querySelector()
+            });
+        }
+
+
 
 
 
