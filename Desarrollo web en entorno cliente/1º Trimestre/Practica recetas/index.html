@@ -85,10 +85,11 @@
             <p>texto</p>
             <h2>Insctrucciones</h2>
             <p></p>
+            <h3>Ingredientes y Cantidades</h3>
             <ul>
-                <li>ingrediente 1</li>
+                <!-- <li>ingrediente 1</li>
                 <li>ingrediente 2</li>
-                <li>ingrediente 3</li>
+                <li>ingrediente 3</li> -->
 
 
             </ul>
@@ -168,10 +169,12 @@
             obtenerDatos(url3)
             .then(receta =>{
                 console.log(receta.meals[0].strMeal);
-                let emeTit = document.querySelector('#emergenteLabel');
-                let emeIma = document.querySelector('.text-center');
-                let emeIns = document.querySelector('h2');
-                
+                let emerTit = document.querySelector('#emergenteLabel');
+                let emerIma = document.querySelector('.text-center');
+                let emerIns = document.querySelector('h2');
+                let emerLis = document.querySelector('ul');
+
+
 
                 
             });
