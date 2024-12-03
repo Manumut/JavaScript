@@ -36,7 +36,7 @@
 
         <nav class="col-auto ms-auto">
             <a href="index.html">Inicio</a>
-            <a href="rexFavoritas.html">recetas favoritas</a>
+            <a href="fav.html">recetas favoritas</a>
 
         </nav>
     </div>
@@ -82,7 +82,7 @@
             <div class="text-center">
                 <img src="" alt="" class="img-fluid">
             </div>
-            <p>texto</p>
+            
             <h2>Insctrucciones</h2>
             <p></p>
             <h3>Ingredientes y Cantidades</h3>
@@ -96,107 +96,17 @@
 
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Guardar</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+
         </div>
       </div>
     </div>
   </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="./js.js"></script>
     
-    <script>
-
-        // VARIABLES Y CONSTANTES
-        let selectorCategorias = document.querySelector('#categorias select');
-        let row = document.querySelector('#recetas .row' )
-        // funcion para obtener los datos de la apu pasandole la urlÇ
-        function obtenerDatos(url){
-            return fetch(url)
-            .then(respuesta => respuesta.json())
-        }
-
-        // funcion
-        function cargarCategorias(){
-            const url1 ="https://www.themealdb.com/api/json/v1/1/categories.php";
-
-            obtenerDatos(url1)
-            .then(datos => {
-                datos.categories.forEach(dato => {
-                    console.log(dato.strCategory)
-                    selectorCategorias.innerHTML += `
-                        <option value="${dato.strCategory}"> ${dato.strCategory} </option>
-                    `;
-                    
-                });
-
-            })
-        }
-        
-        cargarCategorias();
-
-        function mostrarRecetasDeCateg(cat){
-            const url2 ="https://www.themealdb.com/api/json/v1/1/filter.php?c="+cat;
-            row.innerHTML=``;
-            obtenerDatos(url2)
-            .then(recetas => {
-                recetas.meals.forEach(dato =>{
-                    row.innerHTML +=`
-                        <div class="col-md-4">
-                            <div class="card text-white bg-primary mb-3">
-                                <div class="card-header">
-                                    <img src="${dato.strMealThumb}" class="img-fluid"/>    
-                                </div>
-                                <div class="card-body">
-                                <h4 class="card-title">
-                                    ${dato.strMeal}
-                                </h4>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#emergente" onclick="mostrarReceta(${dato.idMeal})">
-                                    Ver Receta
-                                </button> 
-                                </div>
-                            </div>
-                        </div>
-                    `
-                });
-            });
-        }
-
-        // https://www.themealdb.com/api/json/v1/1/lookup.php?i=
-
-        // ABRIR MODAL CON LOS DATOS DE LA RECETA
-        function mostrarReceta(idReceta){
-            const url3 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i="+idReceta;
-            obtenerDatos(url3)
-            .then(receta =>{
-                console.log(receta.meals[0].strMeal);
-                let emerTit = document.querySelector('#emergenteLabel');
-                let emerIma = document.querySelector('.text-center');
-                let emerIns = document.querySelector('h2');
-                let emerLis = document.querySelector('ul');
-
-
-
-                
-            });
-        }
-
-
-
-
-
-//         function cargarDatosurl  (url)  {
-//     fetch (url). then (repsuesta=>respuesta.josn()).then (datos =>{
-//         return datos  
-//         // y ya lo q devuelve lo uswas en otra funcion para hacer el foreach
-
-//     })
-// }
-//     cargardatos().forEach
-
-
-
-
-
-    </script>
+    
 </body>
 </html>
