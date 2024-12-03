@@ -9,13 +9,14 @@
         let emerLista = document.querySelector("#emergente ul");
         let emerText = document.querySelector("#emergente p");
         
-        // funcion para obtener los datos de la apu pasandole la urlÇ
+
+        // funcion para obtener los datos de la api pasandole la url
         function obtenerDatos(url){
             return fetch(url)
-            .then(respuesta => respuesta.json())
-        }
+            .then(respuesta => respuesta.json());
+        };
 
-        // funcion
+        
         function cargarCategorias(){
             const url1 ="https://www.themealdb.com/api/json/v1/1/categories.php";
 
@@ -25,12 +26,10 @@
                     console.log(dato.strCategory)
                     selectorCategorias.innerHTML += `
                         <option value="${dato.strCategory}"> ${dato.strCategory} </option>
-                    `;
-                    
+                    `; 
                 });
-
-            })
-        }
+            });
+        };
         
         cargarCategorias();
 
@@ -60,7 +59,7 @@
                     `;
                 });
             });
-        }
+        };
 
 
         // ABRIR MODAL CON LOS DATOS DE LA RECETA
@@ -68,33 +67,33 @@
             const url3 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + idReceta;
         
             obtenerDatos(url3)
-                .then(receta => {
-                    // Mostrar los datos de la receta en el modal
-                    emerTit.textContent = receta.meals[0].strMeal;
-                    emerImg.src = receta.meals[0].strMealThumb;
-                    emerText.textContent = receta.meals[0].strInstructions;
-        
-                    // Limpiar la lista de ingredientes antes de agregar nuevos elementos
-                    emerLista.innerHTML = "";
-        
-                    // Recorrer hasta 20 ingredientes
-                    for (let index = 1; index <= 20; index++) {
-                        // Obtener el ingrediente y la medida
-                        const ingrediente = receta.meals[0]["strIngredient" + index];
-                        const medida = receta.meals[0]["strMeasure" + index];
-                        console.log(ingrediente)
-                        console.log(medida)
+            .then(receta => {
+                // Mostrar los datos de la receta en el modal
+                emerTit.textContent = receta.meals[0].strMeal;
+                emerImg.src = receta.meals[0].strMealThumb;
+                emerText.textContent = receta.meals[0].strInstructions;
+    
+                // Limpiar la lista de ingredientes antes de agregar nuevos elementos
+                emerLista.innerHTML = "";
+    
+                // Recorrer hasta 20 ingredientes
+                for (let index = 1; index <= 20; index++) {
+                    // Obtener el ingrediente y la medida
+                    const ingrediente = receta.meals[0]["strIngredient" + index];
+                    const medida = receta.meals[0]["strMeasure" + index];
+                    console.log(ingrediente)
+                    console.log(medida)
 
-        
-                        // Verificar que tanto el ingrediente como la medida no estén vacíos
-                        if (ingrediente && medida && ingrediente.trim() !== "" && medida.trim() !== "") {
-                            const li = document.createElement("li");
-                            li.textContent = `${ingrediente} - ${medida}`;
-                            emerLista.append(li);
-                        }
-                    }
-                });
-        }
+    
+                    // Verificar que tanto el ingrediente como la medida no estén vacíos
+                    if (ingrediente && medida && ingrediente.trim() !== "" && medida.trim() !== "") {
+                        const li = document.createElement("li");
+                        li.textContent = `${ingrediente} - ${medida}`;
+                        emerLista.append(li);
+                    };
+                };
+            });
+        };
         
         
         
