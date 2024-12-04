@@ -26,7 +26,32 @@
             </div>
         </div>
     </div> -->
+    
+    <div class="container my-4">
+        <div class="row">
+            <div class="col-md-4 offset-md-4 text-center">
+                
+                    <select name="ciudades" class="form-select my-2 pd-2">
+                        <option disabled selected>Seleccionar Ciudad</option>
+                        <option value="Granada">Granada</option>
+                        <option value="Jaen">Jaen</option>
+                        <option value="Malaga">Malaga</option>
+                        <option value="Cordoba">Cordoba</option>
+                        <option value="Huelva">Huelva</option>
+                    </select>
 
+                    <select name="paises" class="form-select my-2 pd-2">
+                        <option disabled selected>Seleccionar Pais</option>
+                        <option value="es">España</option>
+                        <option value="uk">Inglaterra</option>
+                        <option value="el">Grecia</option>
+                        <option value="it">Italia</option>
+                        <option value="kr">Korea</option>
+                    </select>
+                    <input type="submit" value="Enviar" name="enviar">
+            </div>
+        </div>
+    </div>
 
     <script>
 
@@ -35,7 +60,8 @@
                 const apiKey = "905d21cffb5fa626189066c2bdf34f2a";
                 const lat = pos.coords.latitude;
                 const lon = pos.coords.longitude;
-                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=metric`;
+                const url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&lang=es&appid=${apiKey}&units=metric`;
+                const url2 = `https://api.openweathermap.org/data/2.5/weather?q=${city name},${country code}&appid=${API key}`
                 console.log(url)
                 
                 mostrarDatos(url);
@@ -50,9 +76,10 @@
                 <div class="row">
                 <div class="col-md-4 offset-md-4 border p-4">
                     <img src="http://openweathermap.org/img/wn/${datos.weather[0].icon}@2x.png" alt="">
-                    <h1 class="text-info">22 ºC</h1>
-                    <h4>Min: 20 ºC </h4>
-                    <h4>Max: 25 ºC</h4>
+                    <h1 class="text-info">${datos.name} ºC</h1>
+                    <h2 class="text-info">${Math.floor(datos.main.temp)} ºC</h2>
+                    <h4>Min: ${Math.floor(datos.main.temp_min)} ºC </h4>
+                    <h4>Max: ${Math.floor(datos.main.temp_max)} ºC</h4>
                 </div>
                 </div>
             </div>
