@@ -93,46 +93,7 @@
     </div>
     
 
-    <script>
-        // Recuperar el arreglo de IDs desde localStorage
-        row = document.querySelector("#recetas .row");
-        const idsGuardados = JSON.parse(localStorage.getItem("idsGuardados")) || [];
-        
-
-       
-
-        if (idsGuardados.length > 0) {
-            idsGuardados.forEach(id => {
-
-
-                
-
-                    row.innerHTML += `
-                 
-                    <div class="col-md-4">
-                        <div class="card text-white bg-info mb-3">
-                            <div class="card-header">
-                                <img src="${id.strMealThumb}" class="img-fluid" alt="">
-                            </div>
-                            <div class="card-body">
-                            <h4 class="card-title">${id.strMeal}</h4>
-                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" 
-                                    data-bs-target="#emergente"
-                                    onclick="mostarReceta(${id})">
-                                    VER MAS ->
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    `; 
-                    
-                
-
-            });
-        } else {
-            lista.textContent = "No hay IDs guardados.";
-        }
-    </script>
+    
 
 
 <script src="./index.js"></script>

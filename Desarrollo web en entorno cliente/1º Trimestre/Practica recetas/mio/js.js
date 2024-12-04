@@ -81,8 +81,8 @@
                     // Obtener el ingrediente y la medida
                     const ingrediente = receta.meals[0]["strIngredient" + index];
                     const medida = receta.meals[0]["strMeasure" + index];
-                    console.log(ingrediente)
-                    console.log(medida)
+                    console.log(ingrediente);
+                    console.log(medida);
 
     
                     // Verificar que tanto el ingrediente como la medida no estén vacíos
@@ -92,6 +92,26 @@
                         emerLista.append(li);
                     };
                 };
+                
+                
+                document.getElementById("gua").addEventListener("click", () => {
+                    // guarda el array desde localStorage o crea uno vacío si no existe
+                    let guardId = JSON.parse(localStorage.getItem("guardId")) || [];
+        
+                    // Obtiene el id actual
+                    const guardVar = receta.meals[0].idMeal;
+        
+                    // comprueba si el id ya está en el array
+                    if (!guardId.includes(guardVar)) {
+        
+                        // Si no existe, lo agrega
+                        guardId.push(guardVar);
+        
+                        // Guarda el array de id actualizado en localStorage
+                        localStorage.setItem("guardId", JSON.stringify(guardId));
+                    } 
+                });
+
             });
         };
         
