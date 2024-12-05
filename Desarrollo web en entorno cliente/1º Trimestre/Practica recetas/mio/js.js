@@ -1,18 +1,18 @@
 // VARIABLES Y CONSTANTES
-let selectorCategorias = document.querySelector('#categorias select');
-let row = document.querySelector('#recetas .row');
+let selectorCategorias = document.querySelector('#categorias select'); 
+let row = document.querySelector('#recetas .row'); 
 
 let emerTit = document.querySelector('#emergenteLabel');
 let emerImg = document.querySelector("#emergente img");
 let emerLista = document.querySelector("#emergente ul");
 let emerText = document.querySelector("#emergente p");
 
-// FUNCION PARA OBTENER LOS DATOS DE LA API PASÁNDOLE LA URL
+// FUNCION PARA OBTENER LOS DATOS DE LA API PASANDOLE LA URL
 function obtenerDatos(url) {
-    return fetch(url).then(respuesta => respuesta.json());
+    return fetch(url).then(respuesta => respuesta.json()); 
 }
 
-// FUNCION PARA CARGAR LAS CATEGORÍAS DE LA API
+// FUNCION PARA CARGAR LAS CATEGORIAS DE LA API
 function cargarCategorias() {
     const url1 = "https://www.themealdb.com/api/json/v1/1/categories.php";
 
@@ -26,9 +26,9 @@ function cargarCategorias() {
         });
 }
 
-cargarCategorias();
+cargarCategorias(); // Se llama a la función para cargar las categorías al inicio
 
-// FUNCION PARA MOSTRAR LAS RECETAS DE UNA CATEGORÍA SELECCIONADA
+// FUNCION PARA MOSTRAR LAS RECETAS DE UNA CATEGORIA SELECCIONADA
 function mostrarRecetasDeCateg(cat) {
     const url2 = "https://www.themealdb.com/api/json/v1/1/filter.php?c=" + cat;
     row.innerHTML = "";
@@ -57,30 +57,29 @@ function mostrarRecetasDeCateg(cat) {
 
 // ABRIR MODAL CON LOS DATOS DE LA RECETA
 function mostrarReceta(idReceta) {
-    const url3 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + idReceta;
+    const url3 = "https://www.themealdb.com/api/json/v1/1/lookup.php?i=" + idReceta; 
 
-    obtenerDatos(url3)
+    obtenerDatos(url3) 
         .then(receta => {
-            emerTit.textContent = receta.meals[0].strMeal;
-            emerImg.src = receta.meals[0].strMealThumb;
-            emerText.textContent = receta.meals[0].strInstructions;
 
-            // Limpiar la lista de ingredientes antes de agregar nuevos elementos
+            emerTit.textContent = receta.meals[0].strMeal; 
+            emerImg.src = receta.meals[0].strMealThumb; 
+            emerText.textContent = receta.meals[0].strInstructions; 
+
             emerLista.innerHTML = "";
 
-            // Recorrer hasta 20 ingredientes
             for (let index = 1; index <= 20; index++) {
                 const ingrediente = receta.meals[0]["strIngredient" + index];
                 const medida = receta.meals[0]["strMeasure" + index];
 
                 if (ingrediente && medida && ingrediente.trim() !== "" && medida.trim() !== "") {
                     const li = document.createElement("li");
-                    li.textContent = `${ingrediente} - ${medida}`;
-                    emerLista.append(li);
+                    li.textContent = `${ingrediente} - ${medida}`; 
+                    emerLista.append(li); 
                 }
             }
 
-            // Crear el botón de eliminar si es necesario
+            // Crear el boton para eliminar de favoritos si no existe
             const eliminarBtn = document.getElementById("eliminarBtn");
             if (!eliminarBtn) {
                 const btn = document.createElement("button");
@@ -88,11 +87,9 @@ function mostrarReceta(idReceta) {
                 btn.classList.add("btn", "btn-danger");
                 btn.textContent = "Eliminar de favoritos";
                 btn.addEventListener("click", () => {
-                    eliminarDeFavoritos(receta.meals[0].idMeal);
-                    const modalElement = bootstrap.Modal.getInstance(document.getElementById("emergente"));
-                    modalElement.hide();
+                    eliminarDeFavoritos(receta.meals[0].idMeal); // Elimina la receta de favoritos
                 });
-                document.querySelector(".modal-footer").appendChild(btn);
+                document.querySelector(".modal-footer").appendChild(btn); // Añado el boton al modal
             }
 
             // Guardar receta como favorita
@@ -103,43 +100,44 @@ function mostrarReceta(idReceta) {
                     strMealThumb: receta.meals[0].strMealThumb
                 };
 
-                guardarEnFavoritos(recetaFavorita);
+                guardarEnFavoritos(recetaFavorita); // Llama a la funcion para guardar en favoritos
             });
         });
 }
 
 // FUNCION PARA ELIMINAR UNA RECETA DE FAVORITOS
+// Elimino una receta de los favoritos guardados en el localStorage
 function eliminarDeFavoritos(idReceta) {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-    favoritos = favoritos.filter(receta => receta.idMeal !== idReceta);
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; // Obtiene los favoritos desde el localStorage
+    favoritos = favoritos.filter(receta => receta.idMeal !== idReceta); // Filtra la receta eliminada
 
-    // Guardar los favoritos actualizados
-    localStorage.setItem("favoritos", JSON.stringify(favoritos));
+    localStorage.setItem("favoritos", JSON.stringify(favoritos)); // Guarda los favoritos actualizados
 
-    // Actualizar la vista de favoritos
-    mostrarFavoritos();
-    alert("Receta eliminada de favoritos.");
+    mostrarFavoritos(); // Actualiza la vista de favoritos
+    alert("Receta eliminada de favoritos."); // Muestra un mensaje al usuario
 }
 
-
 // FUNCION PARA GUARDAR UNA RECETA EN FAVORITOS
+// Guarda una receta en los favoritos si no esta antes guardada
 function guardarEnFavoritos(receta) {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; // Saca los favoritos desde el localStorage
 
     if (!favoritos.some(fav => fav.idMeal === receta.idMeal)) {
-        favoritos.push(receta);
-        localStorage.setItem("favoritos", JSON.stringify(favoritos));
-        alert("Receta guardada en favoritos!");
+        favoritos.push(receta); // Agrega la receta a los favoritos
+        localStorage.setItem("favoritos", JSON.stringify(favoritos)); // Guarda los favoritos en el localStorage
+        alert("Receta guardada en favoritos"); // Muestra un mensaje de exito
     } else {
-        alert("Esta receta ya está en favoritos.");
+        alert("Esta receta ya esta en favoritos."); // Si ya esta guardada, muestra un mensaje
     }
 }
 
 // FUNCION PARA MOSTRAR LAS RECETAS GUARDADAS EN FAVORITOS
+// Muestra todas las recetas guardadas en los favoritos en la interfaz
 function mostrarFavoritos() {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-    row.innerHTML = "";
+    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || []; // Obtiene los favoritos del localStorage
+    row.innerHTML = ""; // Limpia la vista de recetas
 
+    // Recorre las recetas favoritas y las muestra en la interfaz
     favoritos.forEach(receta => {
         row.innerHTML += `
             <div class="col-md-4">
@@ -159,16 +157,7 @@ function mostrarFavoritos() {
     });
 }
 
-// FUNCION PARA ELIMINAR UNA RECETA DE FAVORITOS
-function eliminarDeFavoritos(idReceta) {
-    let favoritos = JSON.parse(localStorage.getItem("favoritos")) || [];
-    favoritos = favoritos.filter(receta => receta.idMeal !== idReceta);
-
-    localStorage.setItem("favoritos", JSON.stringify(favoritos));
-    mostrarFavoritos();
-    alert("Receta eliminada de favoritos.");
-}
-
+// Cargar las categorias al inicio cuando se cargue el documento
 document.addEventListener("DOMContentLoaded", () => {
-    cargarCategorias();
+    cargarCategorias(); // Llama a la función para cargar las categorias al inicio
 });
