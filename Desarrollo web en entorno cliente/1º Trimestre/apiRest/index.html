@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input, textarea{
+            display: block;
+            margin: 20px 0;
+            padding: 10px;
+            min-width: 30%;
+        }
+
+        input[type="submit"]{
+            min-width: 20%;
+            background-color: crimson;
+            color: white;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Curso Diseño Web</h1>
+
+    <form action="">
+        <input type="text" name="tituloCurso" placeholder="tituloCurso">
+        <textarea name="textoCurso" placeholder="textoCurso"></textarea>
+        <input type="text" name="imgCurso" placeholder="nombreImagen">
+        <input type="submit" name="insertarDatos" value="Insertar datos">
+
+    </form>
+
+    <button>cargar</button>
+
+    <ul></ul>
+
+    <script>
+        const btn = document.querySelector("button");
+        const url = "datos.php";
+        const ul = document.querySelector("ul");
+        const form = document.forms[0];
+
+        form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            let formData = new FormData(form);
+            insertarDatos(formData);
+            setTimeout(() => {
+                cargarDatos();
+            }, 1000);
+        })
+
+        function insertarDatos(datosForm){
+            fetch("insertar.php", {
+                method:"POST",
+                headers: {
+                    'Authorization': 'Bearer  0123456789'
+                },
+                body: datosForm,
+            })
+            .then(respuesta=>respuesta.json())
+            .then(datos=> {
+                cargarDatos();
+            })
+        }
+
+        btn.addEventListener("click", () => {
+            cargarDatos();
+            // let cargarDatos = async () => {
+
+            // }
+        })
+
+        function cargarDatos(){
+            ul.innerHTML = '';
+            fetch(url)
+            .then(respuesta => respuesta.json())
+            .then(datos => {
+                datos.forEach(curso => {
+                    ul.innerHTML += `
+                        <li>${curso.tituloCurso}</li>
+                    `;
+                });
+            })
+        }    
+    </script>
+</body>
+</html>
