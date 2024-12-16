@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // 4. Crear una tabla con los días de la semana
+        // Usa JavaScript para crear una tabla HTML que tenga los días de la semana como encabezados de columna. Cada día debe estar en una celda diferente.
+        const diaSem = ["Lunes", "Martes", "Miércoles", "Jueves", "Viernes", "Sábado", "Domingo"];
+
+        const tabla = document.createElement("table");
+        const tr = document.createElement("tr");
+
+        diaSem.forEach(dia =>{
+            const th = document.createElement("th");
+            th.textContent=`${dia}`;
+            tr.append(th);
+        });
+        tabla.append(tr);
+        document.body.append(tabla);
+
+
+
+    </script>
+
+</body>
+</html>

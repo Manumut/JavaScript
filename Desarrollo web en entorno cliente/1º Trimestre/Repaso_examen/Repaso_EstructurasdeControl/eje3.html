@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="">
+
+    </form>
+    <script>
+        // 3. Generar una lista HTML dinámica a partir de un array
+        // Crea un array con algunos elementos de texto (por ejemplo, nombres de frutas) y usa JavaScript para generar una lista no ordenada (<ul>) en HTML, agregando un <li> por cada elemento del array.
+
+        const array = ["manzana", "pera", "platano"];
+        const cont = array.length;
+
+        const ul = document.createElement("ul");
+
+        for (let i = 0; i < cont; i++) {
+            const li = document.createElement("li");
+            li.textContent = `${array[i]}`;
+            ul.append(li);
+            
+        }
+        document.body.append(ul);
+
+    </script>
+</body>
+</html>
