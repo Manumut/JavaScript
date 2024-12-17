@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 5.2 EJERCICIO / 1pt
+    Crea una página con un formulario que contenga un campo de texto para que el
+    usuario ingrese su nombre. Al enviar el formulario, guarda el nombre ingresado
+    en el localStorage. Si el usuario recarga la página, verifica si hay un nombre
+    guardado y, de ser así, muéstralo automáticamente en pantalla.
+    -->
+
+    
+    
+    <script>
+        const form = document.createElement("form");
+        const texto = document.createElement("input");
+        const env = document.createElement("input");
+        const nomUsu = document.createElement("p");
+
+        texto.type="text";
+        texto.placeholder="Introduzca su nombre";
+        env.type="submit";
+        env.value="enviar";
+
+        form.append(texto,env);
+        document.body.append(form);
+
+        let nombre= localStorage.getItem("nombre");
+
+        nomUsu.textContent= `${nombre}`;
+        document.body.append(nomUsu);
+
+        form.addEventListener("submit",() =>{
+            nombre=texto.value.trim();
+            localStorage.setItem("nombre", nombre)
+        })
+
+        
+    </script>
+</body>
+</html>

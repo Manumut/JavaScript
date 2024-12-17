@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 7. EJERCICIO / 1.5 pts
+    Obtén los comentarios desde una API (
+    https://jsonplaceholder.typicode.com/comments ) y muéstralos en una lista en
+    la página. Guarda los comentarios en el localStorage de modo que, cuando
+    recargues la página, los comentarios sigan siendo visibles sin necesidad de
+    realizar otra solicitud a la API.
+        -->
+        <script>
+            const url="https://jsonplaceholder.typicode.com/comments";
+            const ul = document.createElement("ul");
+            let comentarios= localStorage.getItem("comentarios");
+
+                
+            fetch(url)
+            .then(mostrar => mostrar.json())
+            .then(datos=>{
+                datos.forEach(dato => {
+                    const li = document.createElement("li");
+                    li.textContent = `${dato.name}`;
+                    ul.append(li);
+
+                    comentarios=dato.name;
+                    localStorage.setItem("comentarios", comentarios)
+                });
+            });
+            document.body.append(ul);
+        </script>
+</body>
+</html>

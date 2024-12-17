@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 5.1 EJERCICIO / 2pts
+    Crear una funcionalidad interactiva para administrar una lista de elementos:
+    a. Muestra una lista inicial de elementos, como "Elemento 1", "Elemento 2",
+    "Elemento 3", en una página web.
+    b. Debajo de la lista, incluye un botón llamado "Eliminar".
+    c. Cada vez que el usuario haga clic en el botón, se debe eliminar el último
+    elemento visible de la lista.
+    d. Si la lista queda vacía, el botón debe deshabilita -->
+
+    
+    
+    <script>
+
+        const elementos = ["Elemento 1", "Elemento 2", "Elemento 3"];
+        const ul = document.createElement("ul");
+        const elimi = document.createElement("button");
+
+        elimi.textContent="Borrar";
+
+        elementos.forEach(ele =>{
+            const li = document.createElement("li");
+            li.textContent=`${ele}`;
+            ul.append(li);
+        });
+
+        document.body.append(ul);
+        document.body.append(elimi);
+
+        elimi.addEventListener("click", () =>{
+            elementos.pop();//ELIMINA EL ULTIMO
+            ul.innerHTML="";
+            if(elementos.length!=0){
+                elementos.forEach(ele =>{
+                const li = document.createElement("li");
+                li.textContent=`${ele}`;
+                ul.append(li);
+                });
+            }else{
+                // BORRAR EL BOTON CUANDO NO HAY ELEMENTOS
+            }
+            
+        })
+
+
+        
+    </script>
+</body>
+</html>

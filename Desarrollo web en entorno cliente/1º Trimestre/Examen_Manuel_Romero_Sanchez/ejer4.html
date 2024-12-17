@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 4. EJERCICIO / 1pt
+    Dado el siguiente array de objetos con información de usuarios:
+    const usuarios = [
+    { nombre: "Carlos", edad: 17 },
+    { nombre: "Laura", edad: 21 },
+    { nombre: "Andrés", edad: 16 },
+    { nombre: "Marta", edad: 25 },
+    { nombre: "Sofía", edad: 19 },
+    ];
+    Crea un nuevo array que contenga únicamente los nombres de los usuarios.
+    Muestra este nuevo array en la consola -->
+
+    <script>
+         const usuarios = [
+            { nombre: "Carlos", edad: 17 },
+            { nombre: "Laura", edad: 21 },
+            { nombre: "Andrés", edad: 16 },
+            { nombre: "Marta", edad: 25 },
+            { nombre: "Sofía", edad: 19 },
+            ];
+
+            const nombres = usuarios.map(usuario => usuario.nombre);
+            console.log(nombres);
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 2. EJERCICIO / 1pt
+    Generar un select con opciones de 1 a un número dado por el usuario
+    Solicita al usuario un número, luego crea un elemento <select> con opciones que
+    van desde el número 1 hasta el número ingresado. Cada opción debe tener el
+    mismo número como valor y texto.
+    -->
+    <script>
+        const form = document.createElement("form");
+        const text = document.createElement("input");
+        const boton = document.createElement("input");
+        const select = document.createElement("select");
+
+
+        text.type = "number";
+        text.placeholder = "Ponga un numero";
+
+        boton.type = "submit";
+        boton.value = "Enviar";
+
+        form.append(text,boton);
+        document.body.append(form);
+        form.addEventListener("submit", () => {
+            document.body.innerHTML = ``;
+            for (let i = 1; i <= text.value; i++) {
+                const numeros = document.createElement("option");
+                numeros.textContent = `${i}`;
+                select.append(numeros);
+            }
+            document.body.append(select);
+            
+        })
+    
+    </script>
+</body>
+</html>

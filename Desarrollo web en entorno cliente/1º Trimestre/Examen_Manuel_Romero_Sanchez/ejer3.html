@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 3. EJERCICIO / 1pt
+    Dado un array de objetos con información de usuarios, filtra aquellos que sean
+    mayores de edad y muestra sus datos en consola.
+    const usuarios = [
+    { nombre: "Carlos", edad: 17, email: "carlos@example.com" },
+    { nombre: "Laura", edad: 21, email: "laura@example.com" },
+    { nombre: "Andrés", edad: 16, email: "andres@example.com" },
+    { nombre: "Marta", edad: 25, email: "marta@example.com" },
+    { nombre: "Sofía", edad: 19, email: "sofia@example.com" },
+    ] ;
+    -->
+    
+
+    <script>
+        const usuarios = [
+            { nombre: "Carlos", edad: 17, email: "carlos@example.com" },
+            { nombre: "Laura", edad: 21, email: "laura@example.com" },
+            { nombre: "Andrés", edad: 16, email: "andres@example.com" },
+            { nombre: "Marta", edad: 25, email: "marta@example.com" },
+            { nombre: "Sofía", edad: 19, email: "sofia@example.com" },
+            ] ;
+
+            const mayoria= usuarios.filter(usuario => usuario.edad > 18);
+
+            console.log(mayoria);
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 6. EJERCICIO / 1.5 pts
+
+    Obtén datos de una API ( https://jsonplaceholder.typicode.com/posts ) y
+    muestra los títulos de los posts en una lista. Agrega un campo de búsqueda que
+    permita filtrar los resultados por el título del post en tiempo real.
+    -->
+    
+    <script>
+        const url="https://jsonplaceholder.typicode.com/posts";
+        const buscador = document.createElement("input");
+        const ul = document.createElement("ul");
+
+        
+        buscador.type="text";
+        buscador.placeholder="Busque";
+        document.body.append(buscador);
+
+        fetch(url)
+        .then(mostrar => mostrar.json())
+        .then(datos=>{
+            datos.forEach(dato => {
+                const li = document.createElement("li");
+                li.textContent = `${dato.title}`;
+                ul.append(li);
+            });
+        });
+        document.body.append(ul);
+
+        // SIN FUNCIONALIDAD DE BUSCADOR
+    </script>
+</body>
+</html>
