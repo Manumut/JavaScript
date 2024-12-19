@@ -48,18 +48,40 @@
             border-color: white;
         }
 
+        .nieve{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+
+        }
         .copoNieve{
+            /* width: 40px;
+            height: 40px; */
             position: absolute;
             background-color: #fff;
             border-radius: 50%;
             opacity: .8;
-            animation: animar linear infinite;
+            animation: 20s animar linear infinite;
         }
+
+        @keyframes animar{
+            0%{
+                transform: translateY(0) rotate(0);
+                opacity: 0.8;
+            }
+
+            100%{
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0.2;
+            }
+        }
+
     </style>
 </head>
 <body>
     <div class="copoNieve">
-        
+
     </div>
     <div class="galeria">
         <div class="cuadro">
@@ -128,5 +150,11 @@
         </div>
 
     </div>
+
+    <script>
+        function crearCopp{
+            
+        }
+    </script>
 </body>
 </html>
