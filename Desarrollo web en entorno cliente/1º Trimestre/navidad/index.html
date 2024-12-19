@@ -62,7 +62,7 @@
             background-color: #fff;
             border-radius: 50%;
             opacity: .8;
-            animation: 20s animar linear infinite;
+            animation: animar linear infinite;
         }
 
         @keyframes animar{
@@ -80,9 +80,8 @@
     </style>
 </head>
 <body>
-    <div class="copoNieve">
+    <!-- <div class="copoNieve"></div> -->
 
-    </div>
     <div class="galeria">
         <div class="cuadro">
             <img src="./lazo.png" alt="" class="lazo">
@@ -152,8 +151,25 @@
     </div>
 
     <script>
-        function crearCopp{
-            
+        const nieve = document.querySelector(".nieve");
+        // funcion para crear copos
+        function crearCopo(){
+            const copoNieve = document.createElement("div");
+            copoNieve.classList.add("copoNieve");
+
+            // Tamaño aleatorio copos entre 5 y 15px
+            const tam = Math.random() * 10 + 5;
+            copoNieve.style.width `${tam}px`;
+            copoNieve.style.height `${tam}px`;
+
+            // duracion aleatoria entre 2 y 5 segundos
+            const duracion = Math.random() * 3 +2;
+            copoNieve.style.animationDuration `${duracion}s`;
+
+            // pisicion inicial aleatoria
+            copoNieve.style.left = `${Math.random() * 100}vw`;
+
+
         }
     </script>
 </body>
