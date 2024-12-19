@@ -5,56 +5,128 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        *{
+        body{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-        }
-        body{
             min-height: 100vh;
             background: rgb(2,0,36);
             background: radial-gradient(rgba(2,0,36,1) 0%, rgba(255,0,0,1) 0%, rgba(70,0,0,1) 100%);
+            display: flex;
         }
-        .galeria{
+        div.galeria{
+            margin: auto;
             max-width: 80%;
             display: flex;
             flex-flow: wrap;
             gap: 20px;
+            justify-content: space-between;
 
             .cuadro{
-                width: 30%;
-                width: 400px;
+                width: 32%px;
                 height: 500px;
                 border: solid 10px #285c27;
-                box-shadow: 0 0 10px rgba(0, 0, 0, .1);
-                
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+                margin-top: 10px 0;
+                position:relative;
                 img{
-                    w
-                    
+                    height: 100%;
+                    width: 100%;
+                }
+                
+                img.lazo{
+                    width: 100px;
+                    height: 100px;
+                    position: absolute;
+                    top: -50px;
+                    left: -50px;
                 }
             }
+        }
 
+        .galeria div:nth-child(16){
+            border-color: white;
+        }
+
+        .copoNieve{
+            position: absolute;
+            background-color: #fff;
+            border-radius: 50%;
+            opacity: .8;
+            animation: animar linear infinite;
         }
     </style>
 </head>
 <body>
+    <div class="copoNieve">
+        
+    </div>
     <div class="galeria">
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
-        <div class="cuadro"><img src="https://picsum.photos/400/500" alt=""></div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+        <div class="cuadro">
+            <img src="./lazo.png" alt="" class="lazo">
+            <img src="https://picsum.photos/400/500" alt="">
+        </div>
+
     </div>
 </body>
 </html>
