@@ -4,17 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        @keyframes animar {
+            from{
+                transform: translateX(-1000px);
+            }
+            to{
+                transform: translateX(1000px);
+            }
+        }
+        .efecto{
+            animation: animar 5s infinite;
+        }
+    </style>
 </head>
 <body>
+    <!-- <div>
+        <h1>Titulo</h1>
+        <img src="https://picsum.photos/500" alt="">
+        <p>Parrafo 1</p>
+        <p>Parrafo 2</p>
+        <p>Parrafo 3</p>
+    </div> -->
+
     <div>
-        <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Omnis possimus aperiam dolorem. Maxime repellat magni corporis quisquam, officiis iste pariatur! Ratione molestiae corporis culpa nam tenetur incidunt nesciunt minima hic?
-        </p>
+        asd
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+
     <script>
-        let div = document.querySelector("div");
-        
+        // $("div").hide(500); ç
+        $(document).ready(function(){
+            // const miDuv=document.createElement("div");
+            // miDuv.textContent="Texto de div";
+            // document.body.append(miDuv);
+
+            // const miDuv = $("<div>Texto de div</div>");
+            // $("body").append(miDuv);
+
+            $('div#caja').prepend("Texto de caja").append("<h2>Hola</h2>");
+
+            $('div').addClass("efecto");
+
+
+
+        });
+
     </script>
 </body>
 </html>
