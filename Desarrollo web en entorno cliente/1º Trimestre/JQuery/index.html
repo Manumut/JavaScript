@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        @keyframes animar {
+        /* @keyframes animar {
             from{
                 transform: translateX(-1000px);
             }
@@ -15,6 +15,27 @@
         }
         .efecto{
             animation: animar 5s infinite;
+        } */
+
+        div{
+
+            max-width: 50%;
+            margin: 10px auto;
+            border: solid 1px rgb(111, 197, 54);
+            padding: 10px;
+            display: flex;
+            flex-flow: wrap;
+            justify-content: space-between;
+            p{
+                display: none;
+            }
+            button{
+                background-color: rgb(111, 197, 54);
+                color(white);
+                border: none;
+                padding: 10px;
+                font-size: 1.5rem;
+            };
         }
     </style>
 </head>
@@ -28,14 +49,17 @@
     </div> -->
 
     <div>
+        <span>Titulo 1</span><button>+</button>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, porro corporis architecto soluta doloribus animi in excepturi, modi cupiditate odio consequuntur nobis voluptatibus vel nam enim tenetur quas ducimus expedita.
         </p>
     </div>
     <div>
+        <span>Titulo 2</span><button>+</button>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, porro corporis architecto soluta doloribus animi in excepturi, modi cupiditate odio consequuntur nobis voluptatibus vel nam enim tenetur quas ducimus expedita.
         </p>
     </div>
     <div>
+        <span>Titulo 3</span><button>+</button>
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, porro corporis architecto soluta doloribus animi in excepturi, modi cupiditate odio consequuntur nobis voluptatibus vel nam enim tenetur quas ducimus expedita.
         </p>
     </div>
@@ -56,6 +80,14 @@
 
             // $('div').addClass("efecto");
         // });
+
+        $(document).ready(function(){
+            $("button").click(function(){
+              //Ahora para que lo muestre tiene que usar show
+            $(this).parent().children("p").show();
+        });
+        });
+        
 
 
 
