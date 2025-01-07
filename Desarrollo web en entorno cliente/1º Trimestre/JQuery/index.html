@@ -27,6 +27,7 @@
             flex-flow: wrap;
             justify-content: space-between;
             p{
+                width: 100%;
                 display: none;
             }
             button{
@@ -82,9 +83,10 @@
         // });
 
         $(document).ready(function(){
+            $("p").hide();
             $("button").click(function(){
               //Ahora para que lo muestre tiene que usar show
-            $(this).parent().children("p").show();
+            $(this).next().show(5000);
         });
         });
         
