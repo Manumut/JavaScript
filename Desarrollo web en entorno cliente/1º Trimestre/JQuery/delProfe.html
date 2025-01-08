@@ -6,6 +6,7 @@
 		<title>Document</title>
 		<style>
 			div {
+				font-family: 'system-ui';
 				max-width: 50%;
 
 				border: solid 1px rgb(220, 18, 99);
@@ -13,19 +14,27 @@
 
 				margin: 10px auto;
 				display: flex;
+                align-items: center;
 
 				flex-flow: wrap;
 				justify-content: space-between;
+
 				p {
-					width: 100%;
+					min-width: 100%;
+                    display: none;
+
 				}
 				button {
 					background-color: rgb(220, 18, 99);
 					color: white;
 					border: none;
-					padding: 10px;
-					font-size: 1.5rem;
+					font-size: 2rem;
+					width: 50px;
+					height: 50px;
+					border-radius: 50%;
 				}
+				
+
 			}
 		</style>
 	</head>
@@ -64,9 +73,21 @@
 
 		<script>
 			
-			$(document).ready(function () {
-		
-			});
+			// $(document).ready(function () { });
+        // SON LA MISMA COSA LO DE ARRIBA Y ABAJO
+			$(function () {
+				$("button").on("click", function () {
+					$(this).next().slideToggle(500);
+					// Ahora lo que haremos sera cambiar el mas a un menos cuando se haya desplegado
+					$(this).text($(this).text() == "+" ? "-" : "+");
+					
+					// se oculta los parrafos y se muestra el + en el boton
+					$(this).parent().siblings().find("p").slideUp(500);
+					$(this).parent().siblings().find("button").text("+");
+
+
+				});
+			})
 		</script>
 	</body>
 </html>
