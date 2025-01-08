@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "system-ui";
+        }
+
+        ul {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        li {
+            list-style: none;
+            background-color: rgb(85, 190, 85);
+            padding: 2rem;
+        }
+
+        li:hover {
+            cursor: pointer;
+            background-color: rgb(179, 119, 119);
+        }
+        section{
+            display: none;
+            width: 30%;
+            margin: auto;
+            border: 1px solid black;
+            padding: 1rem;
+            background-color: rgb(102, 102, 187);
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="tab">
+        <ul>
+            <li>Parrafo 1</li>
+            <li>Parrafo 2</li>
+            <li>Parrafo 3</li>
+        </ul>
+    
+        <section id="sec1">
+            <h2>Seccion 1</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus quos sed earum ex error minima quod,
+                reiciendis delectus perferendis, fuga alias quis ducimus exercitationem rerum accusantium ullam vel
+                assumenda sit!
+            </p>
+        </section>
+        <section id="sec2">
+            <h2>Seccion 2</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus quos sed earum ex error minima quod,
+                reiciendis delectus perferendis, fuga alias quis ducimus exercitationem rerum accusantium ullam vel
+                assumenda sit!
+            </p>
+        </section>
+        <section id="sec3">
+            <h2>Seccion 3</h2>
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusamus quos sed earum ex error minima quod,
+                reiciendis delectus perferendis, fuga alias quis ducimus exercitationem rerum accusantium ullam vel
+                assumenda sit!
+            </p>
+        </section>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        $(function () {
+            $('li').on("click", function () {
+                if ($(this).text() == "Parrafo 1") {
+                    $("#sec1").show();
+                    $("#sec2").hide();
+                    $("#sec3").hide();
+                    $(this).css({
+                        "background-color": "red"
+                    })
+                } else if ($(this).text() == "Parrafo 2") {
+                    $("#sec1").hide();
+                    $("#sec2").show();
+                    $("#sec3").hide();
+                    $(this).css({
+                        "background-color": "red"
+                    })
+                } else if ($(this).text() == "Parrafo 3") {
+                    $("#sec1").hide();
+                    $("#sec2").hide();
+                    $("#sec3").show();
+                    $(this).css({
+                        "background-color": "red"
+                    })
+                }
+            })
+        });
+        
+    </script>
+</body>
+
+</html>
