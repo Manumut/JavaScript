@@ -21,10 +21,12 @@
 
         li {
             list-style: none;
+        }
+        button{
             background-color: rgb(85, 190, 85);
+            border: none;
             padding: 2rem;
         }
-
         li:hover {
             cursor: pointer;
             background-color: rgb(179, 119, 119);
@@ -37,6 +39,9 @@
             padding: 1rem;
             background-color: rgb(102, 102, 187);
         }
+        .cambiar{
+            background-color: rgb(179, 119, 119);
+        }
         
     </style>
 </head>
@@ -44,9 +49,9 @@
 <body>
     <div class="tab">
         <ul>
-            <li>Parrafo 1</li>
-            <li>Parrafo 2</li>
-            <li>Parrafo 3</li>
+            <li><button>Parrafo 1</button></li>
+            <li><button>Parrafo 2</button></li>
+            <li><button>Parrafo 3</button></li>
         </ul>
     
         <section id="sec1">
@@ -79,24 +84,29 @@
 
     <script>
         $(function () {
-            $('li').on("click", function () {
+            $('button').on("click", function () {
                 if ($(this).text() == "Parrafo 1") {
                     $("#sec1").show();
                     $("#sec2").hide();
                     $("#sec3").hide();
-                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
+                    $(this).addClass("cambiar");
+                    $(this).parent().siblings().find("button").removeClass("cambiar"); 
+                    // quiero q el li de donde pulse se quede marcado
+                    
 
                 } else if ($(this).text() == "Parrafo 2") {
                     $("#sec1").hide();
                     $("#sec2").show();
                     $("#sec3").hide();
-                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
+                    $(this).addClass("cambiar");
+                    $(this).parent().siblings().find("button").removeClass("cambiar"); 
 
                 } else if ($(this).text() == "Parrafo 3") {
                     $("#sec1").hide();
                     $("#sec2").hide();
                     $("#sec3").show();
-                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
+                    $(this).addClass("cambiar");
+                    $(this).parent().siblings().find("button").removeClass("cambiar"); 
                 }
             })
         });
