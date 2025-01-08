@@ -36,8 +36,8 @@
             border: 1px solid black;
             padding: 1rem;
             background-color: rgb(102, 102, 187);
-
         }
+        
     </style>
 </head>
 
@@ -84,23 +84,19 @@
                     $("#sec1").show();
                     $("#sec2").hide();
                     $("#sec3").hide();
-                    $(this).css({
-                        "background-color": "red"
-                    })
+                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
+
                 } else if ($(this).text() == "Parrafo 2") {
                     $("#sec1").hide();
                     $("#sec2").show();
                     $("#sec3").hide();
-                    $(this).css({
-                        "background-color": "red"
-                    })
+                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
+
                 } else if ($(this).text() == "Parrafo 3") {
                     $("#sec1").hide();
                     $("#sec2").hide();
                     $("#sec3").show();
-                    $(this).css({
-                        "background-color": "red"
-                    })
+                    $(this).parent().siblings().find("li").css({"background-color": " rgb(179, 119, 119)"}); 
                 }
             })
         });
