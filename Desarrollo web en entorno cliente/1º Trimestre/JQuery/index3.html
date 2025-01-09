@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .circulo{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    
+         <div class="circulo"></div>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script>
+        //  Generar circulos aleatorios en la pantalla cuando le pinches al circulo que haya
+        $(function() {
+           
+                $('.circulo').on("click", function () {
+                    let ancho = $(window).width() +50;
+                    let alto = $(window).height() +50;
+                    let x = (Math.floor(Math.random() * ancho));
+                    let y = (Math.floor(Math.random() * alto));
+                    console.log(x, y);
+                    
+                    $(this).css("left", x);
+                    $(this).css("top", y);
+
+                });
+                
+            
+        });
+    </script>
+</body>
+</html>
