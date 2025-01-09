@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			body {
+				font-family: "system-ui";
+			}
+			ul,
+			li {
+				cursor: pointer;
+				list-style: none;
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+
+			div.tabs {
+				max-width: 50%;
+				margin: auto;
+				/* border: solid 1px slateblue; */
+				ul {
+					border: solid 1px slateblue;
+					display: flex;
+
+					li {
+						padding: 20px;
+						border-right: solid 1px slateblue;
+						&:first-child {
+							background-color: slateblue;
+							color: white;
+						}
+					}
+				}
+
+				section {
+					padding: 20px;
+					border: solid 1px slateblue;
+					& + section {
+						display: none;
+					}
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tabs">
+			<ul>
+				<li>Pestaña1</li>
+				<li>Pestaña2</li>
+				<li>Pestaña3</li>
+			</ul>
+
+			<section id="sec1">
+				<h2>Sección 1</h2>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium,
+					consequuntur repellendus! Inventore laborum omnis unde provident ex
+					eligendi quia, maiores atque earum corporis iure, cumque quod harum
+					necessitatibus perspiciatis autem.
+				</p>
+			</section>
+
+			<section id="sec2">
+				<h2>Sección 2</h2>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium,
+					consequuntur repellendus! Inventore laborum omnis unde provident ex
+					eligendi quia, maiores atque earum corporis iure, cumque quod harum
+					necessitatibus perspiciatis autem.
+				</p>
+			</section>
+			<section id="sec3">
+				<h2>Sección 3</h2>
+				<p>
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Accusantium,
+					consequuntur repellendus! Inventore laborum omnis unde provident ex
+					eligendi quia, maiores atque earum corporis iure, cumque quod harum
+					necessitatibus perspiciatis autem.
+				</p>
+			</section>
+		</div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+		<script>
+			$(function () {
+				
+		    $("li").on("click", function() {
+				var indice = $(this).index();
+				$('section').hide();
+				$('section').eq(indice).fadeIn();
+
+				$('li').css({
+					'background-color': 'white',
+					'color': 'black',
+				});
+
+				$(this).css(
+					{
+					'background-color': 'slateblue',
+					'color': 'white',
+				}
+				)
+				
+
+			})
+
+
+				
+			});
+		</script>
+	</body>
+</html>
